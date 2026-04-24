@@ -1,0 +1,2363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saanji's Creations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --warm-white: #FDF9F4;
+    --blush: #F2D9C8;
+    --dusty-rose: #D4957A;
+    --terracotta: #B5614A;
+    --chocolate: #3D2019;
+    --sage: #8A9E8C;
+    --sage-light: #C8D8C9;
+    --gold: #C9A84C;
+    --gold-light: #EDD99A;
+    --text-main: #2A1810;
+    --text-muted: #7A5C52;
+    --text-light: #A8887C;
+    --border: rgba(180,130,110,0.2);
+    --border-strong: rgba(180,130,110,0.4);
+    --shadow: 0 2px 20px rgba(61,32,25,0.08);
+    --shadow-hover: 0 8px 40px rgba(61,32,25,0.14);
+    --radius: 12px;
+    --radius-lg: 20px;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Jost', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--text-main);
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,247,242,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.6rem; font-weight: 500; font-style: italic;
+    color: var(--terracotta);
+    text-decoration: none; letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-muted); text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--terracotta);
+    background: rgba(180,97,74,0.07);
+  }
+
+  .nav-right {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .search-box {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: var(--warm-white);
+    border: 1px solid var(--border-strong);
+    border-radius: 20px; padding: 0.35rem 0.9rem;
+    transition: all 0.2s;
+  }
+
+  .search-box:focus-within {
+    border-color: var(--dusty-rose);
+    box-shadow: 0 0 0 3px rgba(212,149,122,0.15);
+  }
+
+  .search-box input {
+    border: none; background: transparent;
+    font-family: var(--font-body); font-size: 0.82rem;
+    color: var(--text-main); outline: none; width: 160px;
+  }
+
+  .search-box input::placeholder { color: var(--text-light); }
+
+  .search-icon { color: var(--text-light); font-size: 0.85rem; }
+
+  .btn-admin {
+    padding: 0.4rem 1rem;
+    font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    background: var(--terracotta); color: var(--cream);
+    border: none; border-radius: 20px; cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-admin:hover { background: var(--chocolate); transform: translateY(-1px); }
+
+  .btn-outline {
+    padding: 0.4rem 1rem;
+    font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    background: transparent; color: var(--terracotta);
+    border: 1px solid var(--dusty-rose); border-radius: 20px; cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover { background: rgba(180,97,74,0.07); }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer;
+    background: none; border: none; padding: 4px;
+  }
+
+  .hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--text-muted); border-radius: 2px; transition: all 0.3s;
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: calc(100vh - 64px);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 4rem 2rem;
+    position: relative; overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(242,217,200,0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--dusty-rose); margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--text-main); margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em { color: var(--terracotta); font-style: italic; }
+
+  .hero-sub {
+    font-size: 1rem; color: var(--text-muted);
+    max-width: 420px; line-height: 1.7; margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+  }
+
+  .btn-primary {
+    padding: 0.75rem 2rem;
+    font-family: var(--font-body); font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: var(--terracotta); color: var(--cream);
+    border: none; border-radius: 30px; cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none; display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--chocolate); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(61,32,25,0.2); }
+
+  .btn-secondary {
+    padding: 0.75rem 2rem;
+    font-family: var(--font-body); font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: transparent; color: var(--terracotta);
+    border: 1.5px solid var(--dusty-rose); border-radius: 30px; cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none; display: inline-block;
+  }
+
+  .btn-secondary:hover { background: rgba(180,97,74,0.06); transform: translateY(-2px); }
+
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: var(--text-light); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    animation: bob 2s ease-in-out infinite;
+  }
+
+  @keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-6px)} }
+
+  .scroll-line {
+    width: 1px; height: 32px;
+    background: linear-gradient(to bottom, var(--dusty-rose), transparent);
+  }
+
+  /* ── SECTION LAYOUT ── */
+  .section {
+    padding: 5rem 2rem;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center; margin-bottom: 3.5rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--dusty-rose); margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400; color: var(--text-main);
+    line-height: 1.15;
+  }
+
+  .section-title em { color: var(--terracotta); font-style: italic; }
+
+  .section-divider {
+    width: 48px; height: 1.5px;
+    background: var(--dusty-rose); margin: 1.25rem auto 0;
+  }
+
+  /* ── RECIPE CARDS ── */
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .recipe-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--dusty-rose);
+  }
+
+  .recipe-card-img {
+    width: 100%; aspect-ratio: 4/3;
+    background: var(--blush);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; color: var(--terracotta);
+    position: relative; overflow: hidden;
+  }
+
+  .recipe-card-img img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+
+  .recipe-card-badge {
+    position: absolute; top: 0.75rem; left: 0.75rem;
+    background: var(--cream); color: var(--terracotta);
+    font-size: 0.67rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.3rem 0.6rem; border-radius: 20px;
+    border: 1px solid var(--border-strong);
+  }
+
+  .recipe-card-fav {
+    position: absolute; top: 0.75rem; right: 0.75rem;
+    background: var(--cream); border: none; border-radius: 50%;
+    width: 32px; height: 32px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(61,32,25,0.12);
+  }
+
+  .recipe-card-fav:hover { transform: scale(1.12); }
+
+  .recipe-card-body { padding: 1.25rem 1.5rem 1.5rem; }
+
+  .recipe-card-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem; font-weight: 500; margin-bottom: 0.4rem;
+    color: var(--text-main);
+  }
+
+  .recipe-card-meta {
+    font-size: 0.78rem; color: var(--text-light);
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .recipe-card-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+  .recipe-card-tags {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+  }
+
+  .tag {
+    font-size: 0.67rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 0.2rem 0.6rem; border-radius: 12px;
+    background: rgba(212,149,122,0.12); color: var(--dusty-rose);
+    border: 1px solid rgba(212,149,122,0.25);
+  }
+
+  .tag.vegan { background: rgba(138,158,140,0.15); color: var(--sage); border-color: rgba(138,158,140,0.3); }
+  .tag.eggless { background: rgba(201,168,76,0.12); color: var(--gold); border-color: rgba(201,168,76,0.25); }
+
+  /* ── RECIPE DETAIL ── */
+  .recipe-detail { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
+  .recipe-detail-header { margin-bottom: 2.5rem; }
+
+  .recipe-back {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.78rem; color: var(--text-muted); cursor: pointer;
+    text-decoration: none; margin-bottom: 1.5rem;
+    background: none; border: none; font-family: var(--font-body);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .recipe-back:hover { color: var(--terracotta); }
+
+  .recipe-detail-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 400; line-height: 1.1; margin-bottom: 1rem;
+  }
+
+  .recipe-detail-meta {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    font-size: 0.82rem; color: var(--text-muted);
+    padding: 1.25rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+
+  .recipe-detail-meta span { display: flex; align-items: center; gap: 0.35rem; }
+
+  .recipe-actions {
+    display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;
+  }
+
+  /* ── SCALE CONTROLS ── */
+  .scale-control {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: var(--warm-white);
+    border: 1px solid var(--border-strong);
+    border-radius: 30px; padding: 0.3rem 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .scale-label {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-light); padding: 0 0.5rem;
+  }
+
+  .scale-btn {
+    padding: 0.25rem 0.65rem;
+    font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
+    background: transparent; color: var(--text-muted);
+    border: none; border-radius: 20px; cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .scale-btn:hover { color: var(--terracotta); background: rgba(180,97,74,0.07); }
+  .scale-btn.active { background: var(--terracotta); color: var(--cream); }
+
+  .unit-toggle {
+    display: flex; align-items: center; gap: 0;
+    background: var(--warm-white);
+    border: 1px solid var(--border-strong);
+    border-radius: 30px; overflow: hidden;
+  }
+
+  .unit-btn {
+    padding: 0.35rem 0.85rem;
+    font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    background: transparent; color: var(--text-muted);
+    border: none; cursor: pointer; transition: all 0.18s;
+  }
+
+  .unit-btn.active { background: var(--sage); color: white; }
+
+  .share-btn {
+    padding: 0.35rem 0.85rem;
+    font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    background: transparent; color: var(--text-muted);
+    border: 1px solid var(--border-strong); border-radius: 20px; cursor: pointer;
+    display: flex; align-items: center; gap: 0.35rem;
+    transition: all 0.18s;
+  }
+
+  .share-btn:hover { color: var(--terracotta); border-color: var(--dusty-rose); }
+
+  /* ── RECIPE LAYOUT ── */
+  .recipe-layout {
+    display: grid; grid-template-columns: 280px 1fr; gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 720px) {
+    .recipe-layout { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+  .ingredients-panel {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    position: sticky; top: 80px;
+  }
+
+  .panel-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem; font-weight: 500; margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+  }
+
+  .ingredient-item {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(180,130,110,0.1);
+    font-size: 0.88rem;
+  }
+
+  .ingredient-amount {
+    font-weight: 500; color: var(--terracotta);
+    min-width: 70px; font-size: 0.85rem;
+  }
+
+  .ingredient-name { color: var(--text-main); flex: 1; }
+
+  .ingredient-note {
+    font-size: 0.75rem; color: var(--text-light);
+    display: block; margin-top: 0.15rem;
+    font-style: italic;
+  }
+
+  /* ── STEPS ── */
+  .step-item {
+    display: flex; gap: 1.5rem; margin-bottom: 2rem;
+    padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+  }
+
+  .step-item:last-child { border-bottom: none; }
+
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 3rem; font-weight: 300; color: var(--blush);
+    line-height: 1; flex-shrink: 0; width: 48px; text-align: center;
+  }
+
+  .step-content { flex: 1; }
+
+  .step-title {
+    font-weight: 500; font-size: 0.95rem; margin-bottom: 0.5rem;
+    color: var(--text-main);
+  }
+
+  .step-text { font-size: 0.9rem; line-height: 1.75; color: var(--text-muted); }
+
+  .step-tip {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(201,168,76,0.08);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.82rem; color: var(--text-muted);
+  }
+
+  .step-tip strong { color: var(--gold); }
+
+  .step-technique-link {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--sage);
+    text-decoration: none; margin-top: 0.5rem;
+    cursor: pointer; background: none; border: none; font-family: var(--font-body);
+  }
+
+  .step-technique-link:hover { color: var(--text-main); text-decoration: underline; }
+
+  /* ── NOTES ── */
+  .notes-section {
+    margin-top: 2rem;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+
+  .notes-textarea {
+    width: 100%; min-height: 100px; resize: vertical;
+    font-family: var(--font-body); font-size: 0.88rem; line-height: 1.6;
+    color: var(--text-main); background: transparent;
+    border: none; outline: none;
+  }
+
+  /* ── FILTERS ── */
+  .filter-bar {
+    display: flex; align-items: center; gap: 0.5rem;
+    flex-wrap: wrap; margin-bottom: 2rem;
+  }
+
+  .filter-btn {
+    padding: 0.4rem 1rem;
+    font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: transparent; color: var(--text-muted);
+    border: 1px solid var(--border-strong); border-radius: 20px; cursor: pointer;
+    transition: all 0.18s;
+  }
+
+  .filter-btn:hover { color: var(--terracotta); border-color: var(--dusty-rose); }
+  .filter-btn.active { background: var(--terracotta); color: var(--cream); border-color: var(--terracotta); }
+
+  /* ── CREATIONS GALLERY ── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .gallery-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden; cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .gallery-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+
+  .gallery-img {
+    width: 100%; aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--blush), var(--sage-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; position: relative; overflow: hidden;
+  }
+
+  .gallery-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .gallery-fav {
+    position: absolute; top: 0.6rem; right: 0.6rem;
+    background: rgba(250,247,242,0.9); backdrop-filter: blur(4px);
+    border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; font-size: 0.8rem;
+    transition: all 0.2s; box-shadow: 0 2px 8px rgba(61,32,25,0.12);
+  }
+
+  .gallery-fav:hover { transform: scale(1.15); }
+
+  .gallery-body { padding: 1rem 1.25rem 1.25rem; }
+
+  .gallery-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem; font-weight: 500; margin-bottom: 0.3rem;
+  }
+
+  .gallery-meta { font-size: 0.75rem; color: var(--text-light); margin-bottom: 0.6rem; }
+
+  .gallery-layers {
+    display: flex; flex-direction: column; gap: 0.25rem;
+  }
+
+  .gallery-layer {
+    font-size: 0.75rem; color: var(--text-muted);
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+
+  .gallery-layer-label {
+    font-size: 0.67rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-light); min-width: 70px;
+  }
+
+  /* ── PRODUCTS ── */
+  .products-tabs {
+    display: flex; gap: 0.5rem; margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border); padding-bottom: 0;
+  }
+
+  .product-tab {
+    padding: 0.6rem 1.25rem 0.85rem;
+    font-family: var(--font-body); font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: none; border: none; border-bottom: 2px solid transparent;
+    cursor: pointer; color: var(--text-muted); transition: all 0.2s;
+    margin-bottom: -1px;
+  }
+
+  .product-tab.active { color: var(--terracotta); border-bottom-color: var(--terracotta); }
+  .product-tab:hover { color: var(--terracotta); }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem;
+    transition: all 0.3s;
+  }
+
+  .product-card:hover { box-shadow: var(--shadow-hover); border-color: var(--dusty-rose); }
+
+  .product-icon { font-size: 2.5rem; }
+
+  .product-name {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 500;
+  }
+
+  .product-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+  .product-pricing { display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.25rem; }
+
+  .price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.82rem; color: var(--text-muted);
+    padding: 0.35rem 0; border-bottom: 1px solid rgba(180,130,110,0.1);
+  }
+
+  .price-amount { font-weight: 600; color: var(--terracotta); font-size: 0.9rem; }
+
+  /* ── TECHNIQUES ── */
+  .technique-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .technique-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem; cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .technique-card:hover { box-shadow: var(--shadow-hover); border-color: var(--dusty-rose); transform: translateY(-2px); }
+
+  .technique-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+  .technique-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem; font-weight: 500; margin-bottom: 0.5rem;
+  }
+
+  .technique-preview { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
+
+  /* ── TIPS ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .tip-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.75rem;
+    display: flex; gap: 1.25rem; align-items: flex-start;
+  }
+
+  .tip-icon { font-size: 1.75rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+  .tip-title {
+    font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem;
+    color: var(--text-main);
+  }
+
+  .tip-text { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
+
+  /* ── ADMIN ── */
+  .admin-panel {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem; max-width: 700px; margin: 0 auto;
+  }
+
+  .admin-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem; font-weight: 500; margin-bottom: 1.75rem;
+  }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  .form-label {
+    display: block;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 0.5rem;
+  }
+
+  .form-input, .form-textarea, .form-select {
+    width: 100%;
+    font-family: var(--font-body); font-size: 0.9rem;
+    color: var(--text-main); background: var(--cream);
+    border: 1px solid var(--border-strong); border-radius: 8px;
+    padding: 0.65rem 0.9rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--dusty-rose);
+    box-shadow: 0 0 0 3px rgba(212,149,122,0.15);
+  }
+
+  .form-textarea { min-height: 90px; resize: vertical; }
+
+  .autofill-btn {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.65rem 1.25rem;
+    font-family: var(--font-body); font-size: 0.85rem; font-weight: 500;
+    background: var(--sage); color: white;
+    border: none; border-radius: 8px; cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .autofill-btn:hover { background: #6e8a70; transform: translateY(-1px); }
+
+  .autofill-btn.loading { opacity: 0.7; cursor: wait; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(42,24,16,0.6); backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem;
+  }
+
+  .modal {
+    background: var(--warm-white);
+    border-radius: var(--radius-lg);
+    max-width: 560px; width: 100%;
+    max-height: 90vh; overflow-y: auto;
+    padding: 2rem;
+    box-shadow: 0 24px 80px rgba(42,24,16,0.3);
+  }
+
+  .modal-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem; font-weight: 400; margin-bottom: 0.5rem;
+  }
+
+  .modal-subtitle { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.75rem; }
+
+  .modal-close {
+    position: absolute; top: 1.25rem; right: 1.25rem;
+    background: none; border: none; cursor: pointer;
+    font-size: 1.25rem; color: var(--text-light);
+    display: flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 50%;
+    transition: all 0.2s;
+  }
+
+  .modal-close:hover { background: var(--blush); color: var(--terracotta); }
+
+  /* ── LOADING SPINNER ── */
+  .loading-spinner {
+    display: inline-block; width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: white; border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    text-align: center; padding: 5rem 2rem;
+  }
+
+  .empty-icon { font-size: 4rem; margin-bottom: 1rem; opacity: 0.4; }
+
+  .empty-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem; font-weight: 400; color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-text { font-size: 0.88rem; color: var(--text-light); }
+
+  /* ── VINEGAR NOTICE ── */
+  .vinegar-notice {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.75rem; color: var(--sage);
+    background: rgba(138,158,140,0.1);
+    border: 1px solid rgba(138,158,140,0.25);
+    border-radius: 20px; padding: 0.3rem 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+    background: var(--chocolate); color: var(--cream);
+    padding: 0.85rem 1.25rem; border-radius: 10px;
+    font-size: 0.85rem; box-shadow: 0 8px 32px rgba(61,32,25,0.3);
+    transform: translateY(100px); opacity: 0;
+    transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    max-width: 320px;
+  }
+
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ── SHARE DROPDOWN ── */
+  .share-dropdown {
+    position: absolute; right: 0; top: calc(100% + 8px);
+    background: var(--warm-white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.5rem;
+    box-shadow: var(--shadow-hover); z-index: 50; min-width: 220px;
+    animation: slideIn 0.2s ease;
+  }
+
+  @keyframes slideIn { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+
+  .share-option {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.65rem 0.9rem; border-radius: 6px; cursor: pointer;
+    font-size: 0.83rem; color: var(--text-muted);
+    background: none; border: none; width: 100%; text-align: left;
+    font-family: var(--font-body); transition: all 0.15s;
+  }
+
+  .share-option:hover { background: rgba(180,97,74,0.07); color: var(--terracotta); }
+
+  /* ── MOBILE NAV ── */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 99;
+    background: var(--cream); flex-direction: column;
+    padding: 5rem 2rem 2rem; gap: 0.5rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    padding: 1rem; font-size: 1.1rem; font-weight: 500;
+    color: var(--text-main); text-decoration: none; border-radius: 8px;
+    transition: all 0.2s;
+  }
+
+  .mobile-menu a:hover { background: var(--blush); color: var(--terracotta); }
+
+  /* ── ADMIN INDICATOR ── */
+  .admin-badge {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    font-size: 0.67rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(138,158,140,0.15); color: var(--sage);
+    border: 1px solid rgba(138,158,140,0.3);
+    padding: 0.2rem 0.6rem; border-radius: 12px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .search-box { display: none; }
+    .hamburger { display: flex; }
+    .btn-admin { display: none; }
+    .section { padding: 3rem 1rem; }
+    .recipe-grid, .gallery-grid, .product-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3rem; }
+    .recipe-detail { padding: 2rem 1rem; }
+    .recipe-actions { gap: 0.5rem; }
+    .filter-bar { gap: 0.4rem; }
+    .filter-btn { font-size: 0.68rem; padding: 0.35rem 0.75rem; }
+  }
+
+  /* ── UPLOAD ZONE ── */
+  .upload-zone {
+    border: 2px dashed var(--border-strong);
+    border-radius: var(--radius);
+    padding: 2rem; text-align: center; cursor: pointer;
+    transition: all 0.2s; color: var(--text-light); font-size: 0.85rem;
+  }
+
+  .upload-zone:hover { border-color: var(--dusty-rose); color: var(--terracotta); background: rgba(212,149,122,0.04); }
+
+  .upload-zone-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+  /* technique detail */
+  .technique-detail {
+    max-width: 760px; margin: 0 auto; padding: 3rem 2rem;
+  }
+
+  .technique-step {
+    display: flex; gap: 1.25rem; margin-bottom: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .technique-step-num {
+    background: var(--terracotta); color: var(--cream);
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 600; flex-shrink: 0;
+  }
+
+  .technique-step-text { font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); padding-top: 4px; }
+
+  /* progress indicator */
+  .page-breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.75rem; color: var(--text-light);
+    padding: 1rem 2rem;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .page-breadcrumb span { color: var(--text-light); }
+  .page-breadcrumb a { color: var(--text-muted); cursor: pointer; text-decoration: none; }
+  .page-breadcrumb a:hover { color: var(--terracotta); }
+  .page-breadcrumb .current { color: var(--text-main); font-weight: 500; }
+
+  /* search results highlight */
+  .search-highlight { background: rgba(201,168,76,0.25); border-radius: 2px; }
+
+  /* info box */
+  .info-box {
+    background: rgba(138,158,140,0.1);
+    border: 1px solid rgba(138,158,140,0.25);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem; color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: flex-start; gap: 0.75rem;
+  }
+
+  .info-box-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#" onclick="navigate('home')">Saanji's Creations</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="navigate('recipes')" data-page="recipes">Recipes</a></li>
+    <li><a href="#" onclick="navigate('creations')" data-page="creations">Creations</a></li>
+    <li><a href="#" onclick="navigate('products')" data-page="products">Order</a></li>
+    <li><a href="#" onclick="navigate('techniques')" data-page="techniques">Techniques</a></li>
+    <li><a href="#" onclick="navigate('tips')" data-page="tips">Tips & Tricks</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input type="text" placeholder="Search recipes, techniques..." id="global-search" oninput="handleSearch(this.value)">
+    </div>
+    <span id="admin-badge-nav" style="display:none" class="admin-badge">✦ Admin</span>
+    <button id="admin-toggle-btn" class="btn-outline" onclick="showAdminLogin()">Admin</button>
+    <button id="admin-logout-btn" style="display:none" class="btn-outline" onclick="logoutAdmin()">Log out</button>
+  </div>
+  <button class="hamburger" id="ham-btn" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#" onclick="navigate('recipes');closeMobileMenu()">Recipes</a>
+  <a href="#" onclick="navigate('creations');closeMobileMenu()">Creations</a>
+  <a href="#" onclick="navigate('products');closeMobileMenu()">Order</a>
+  <a href="#" onclick="navigate('techniques');closeMobileMenu()">Techniques</a>
+  <a href="#" onclick="navigate('tips');closeMobileMenu()">Tips & Tricks</a>
+  <hr style="border:none;border-top:1px solid var(--border);margin:0.5rem 0">
+  <a href="#" onclick="showAdminLogin();closeMobileMenu()">Admin Login</a>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ══════════ HOME ══════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-eyebrow">Handcrafted with Love &amp; Plants</div>
+    <h1>Baking is an<br><em>act of joy</em></h1>
+    <p class="hero-sub">Vegan &amp; eggless recipes, creations, and techniques—all from Saanji's kitchen.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="navigate('recipes')">Browse Recipes</button>
+      <button class="btn-secondary" onclick="navigate('creations')">See Creations</button>
+    </div>
+    <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+  </div>
+
+  <!-- FEATURED RECIPES PREVIEW -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">From the Recipe Book</div>
+      <h2 class="section-title">Recent <em>Favorites</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="recipe-grid" id="featured-recipes"></div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn-secondary" onclick="navigate('recipes')">View All Recipes →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ RECIPES ══════════ -->
+<div class="page" id="page-recipes">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">The Recipe Book</div>
+      <h2 class="section-title">All <em>Recipes</em></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterRecipes('all',this)">All</button>
+      <button class="filter-btn" onclick="filterRecipes('cakes',this)">Cakes</button>
+      <button class="filter-btn" onclick="filterRecipes('cupcakes',this)">Cupcakes</button>
+      <button class="filter-btn" onclick="filterRecipes('cookies',this)">Cookies</button>
+      <button class="filter-btn" onclick="filterRecipes('frosting',this)">Frostings</button>
+      <button class="filter-btn" onclick="filterRecipes('favorites',this)">★ Favorites</button>
+    </div>
+
+    <div class="recipe-grid" id="all-recipes"></div>
+
+    <!-- ADMIN: Add Recipe -->
+    <div id="admin-add-recipe" style="display:none;margin-top:3rem">
+      <div class="section-divider" style="margin-bottom:2rem;margin-left:0"></div>
+      <div class="admin-panel">
+        <h3 class="admin-title">Add New Recipe</h3>
+        <div class="form-group">
+          <label class="form-label">Recipe URL (autofill from link)</label>
+          <div style="display:flex;gap:0.75rem">
+            <input class="form-input" id="recipe-url-input" placeholder="https://..." style="flex:1">
+            <button class="autofill-btn" id="autofill-btn" onclick="autofillFromUrl()">
+              <span id="autofill-icon">✦</span> <span id="autofill-text">Autofill</span>
+            </button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Recipe Name</label>
+          <input class="form-input" id="new-recipe-name" placeholder="e.g. Chocolate Lava Cake">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select class="form-select" id="new-recipe-category">
+            <option value="cakes">Cakes</option>
+            <option value="cupcakes">Cupcakes</option>
+            <option value="cookies">Cookies</option>
+            <option value="frosting">Frostings</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="form-group">
+            <label class="form-label">Prep Time</label>
+            <input class="form-input" id="new-recipe-prep" placeholder="20 min">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Bake Time</label>
+            <input class="form-input" id="new-recipe-bake" placeholder="35 min">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tags (comma separated)</label>
+          <input class="form-input" id="new-recipe-tags" placeholder="vegan, chocolate, easy">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Emoji / Icon</label>
+          <input class="form-input" id="new-recipe-emoji" placeholder="🎂" style="width:100px">
+        </div>
+        <button class="btn-primary" onclick="saveNewRecipe()" style="margin-top:0.5rem">Save Recipe</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ RECIPE DETAIL ══════════ -->
+<div class="page" id="page-recipe-detail">
+  <div id="recipe-detail-content"></div>
+</div>
+
+<!-- ══════════ CREATIONS ══════════ -->
+<div class="page" id="page-creations">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">The Gallery</div>
+      <h2 class="section-title">Saanji's <em>Creations</em></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterCreations('all',this)">All</button>
+      <button class="filter-btn" onclick="filterCreations('birthday',this)">🎂 Birthday</button>
+      <button class="filter-btn" onclick="filterCreations('wedding',this)">💍 Wedding</button>
+      <button class="filter-btn" onclick="filterCreations('graduation',this)">🎓 Graduation</button>
+      <button class="filter-btn" onclick="filterCreations('holiday',this)">🎄 Holiday</button>
+      <button class="filter-btn" onclick="filterCreations('favorites',this)">★ Favorites</button>
+    </div>
+
+    <div class="gallery-grid" id="creations-gallery"></div>
+
+    <!-- Admin: Upload Creation -->
+    <div id="admin-add-creation" style="display:none;margin-top:3rem">
+      <div class="section-divider" style="margin-bottom:2rem;margin-left:0"></div>
+      <div class="admin-panel">
+        <h3 class="admin-title">Add Creation</h3>
+        <div class="form-group">
+          <label class="form-label">Photo</label>
+          <div class="upload-zone" onclick="triggerUpload()">
+            <div class="upload-zone-icon">📷</div>
+            <div>Click to upload photo</div>
+            <div style="font-size:0.75rem;margin-top:0.3rem;color:var(--text-light)">JPG, PNG up to 10MB</div>
+            <input type="file" id="photo-upload" accept="image/*" style="display:none" onchange="handlePhotoUpload(this)">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Creation Name</label>
+          <input class="form-input" id="new-creation-name" placeholder="e.g. Rose Vanilla Birthday Cake">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="form-group">
+            <label class="form-label">Event Category</label>
+            <select class="form-select" id="new-creation-event">
+              <option value="birthday">Birthday</option>
+              <option value="wedding">Wedding</option>
+              <option value="graduation">Graduation</option>
+              <option value="holiday">Holiday</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input class="form-input" type="date" id="new-creation-date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Base / Cake Flavor</label>
+          <input class="form-input" id="new-creation-base" placeholder="e.g. Vanilla Sponge">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Filling</label>
+          <input class="form-input" id="new-creation-filling" placeholder="e.g. Raspberry Jam + Buttercream">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Decorations / Frosting / Toppings</label>
+          <input class="form-input" id="new-creation-decorations" placeholder="e.g. Swiss Meringue Buttercream, fresh roses">
+        </div>
+        <button class="btn-primary" onclick="saveNewCreation()" style="margin-top:0.5rem">Save Creation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PRODUCTS ══════════ -->
+<div class="page" id="page-products">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">Place an Order</div>
+      <h2 class="section-title">Custom <em>Creations</em></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div style="text-align:center;max-width:540px;margin:0 auto 3rem;color:var(--text-muted);font-size:0.88rem;line-height:1.7">
+      All items are 100% vegan and made with love. Prices vary by size and servings. Custom orders welcome — reach out for special requests.
+    </div>
+
+    <div class="products-tabs">
+      <button class="product-tab active" onclick="switchProductTab('cakes',this)">Cakes</button>
+      <button class="product-tab" onclick="switchProductTab('cupcakes',this)">Cupcakes</button>
+      <button class="product-tab" onclick="switchProductTab('cookies',this)">Cookies</button>
+      <button class="product-tab" onclick="switchProductTab('other',this)">Other</button>
+    </div>
+
+    <div class="product-grid" id="products-grid"></div>
+  </div>
+</div>
+
+<!-- ══════════ TECHNIQUES ══════════ -->
+<div class="page" id="page-techniques">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">Learn the Craft</div>
+      <h2 class="section-title">Baking <em>Techniques</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="technique-grid" id="techniques-grid"></div>
+  </div>
+</div>
+
+<!-- ══════════ TECHNIQUE DETAIL ══════════ -->
+<div class="page" id="page-technique-detail">
+  <div id="technique-detail-content"></div>
+</div>
+
+<!-- ══════════ TIPS ══════════ -->
+<div class="page" id="page-tips">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">Pro Knowledge</div>
+      <h2 class="section-title">Tips &amp; <em>Tricks</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="tips-grid" id="tips-grid"></div>
+  </div>
+</div>
+
+<!-- ══════════ SEARCH RESULTS ══════════ -->
+<div class="page" id="page-search">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">Search Results</div>
+      <h2 class="section-title">Found <em id="search-count">0</em> results</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div id="search-results-content"></div>
+  </div>
+</div>
+
+<!-- ══════════ ADMIN LOGIN MODAL ══════════ -->
+<div class="modal-overlay" id="admin-modal" style="display:none" onclick="closeModalOutside(event)">
+  <div class="modal" style="position:relative">
+    <button class="modal-close" onclick="closeAdminModal()">✕</button>
+    <div class="modal-title">Admin Access</div>
+    <div class="modal-subtitle">Enter your admin password to unlock editing features.</div>
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <input class="form-input" type="password" id="admin-password" placeholder="Enter password" onkeydown="if(event.key==='Enter')tryAdminLogin()">
+    </div>
+    <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
+      <button class="btn-primary" onclick="tryAdminLogin()" style="flex:1">Sign In</button>
+      <button class="btn-outline" onclick="closeAdminModal()">Cancel</button>
+    </div>
+    <p style="font-size:0.75rem;color:var(--text-light);margin-top:1rem;text-align:center">Demo: password is <code style="color:var(--terracotta)">saanji2024</code></p>
+  </div>
+</div>
+
+<!-- ══════════ SHARE MODAL ══════════ -->
+<div class="modal-overlay" id="share-modal" style="display:none" onclick="closeModalOutside(event)">
+  <div class="modal" style="position:relative;max-width:440px">
+    <button class="modal-close" onclick="document.getElementById('share-modal').style.display='none'">✕</button>
+    <div class="modal-title">Share Recipe</div>
+    <div class="modal-subtitle">Choose what to include in the shared version.</div>
+    <div style="display:flex;flex-direction:column;gap:0.75rem" id="share-options">
+      <button class="share-option" onclick="shareRecipe('recipe-only')">📋 Recipe only (ingredients + steps)</button>
+      <button class="share-option" onclick="shareRecipe('with-photos')">📸 With step-by-step photos</button>
+      <button class="share-option" onclick="shareRecipe('result-only')">🖼️ Result photo + recipe</button>
+      <button class="share-option" onclick="shareRecipe('pdf')">⬇ Download as PDF</button>
+      <button class="share-option" onclick="shareRecipe('link')">🔗 Copy shareable link</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════
+let isAdmin = false;
+let currentPage = 'home';
+let currentRecipe = null;
+let currentTechnique = null;
+let currentScale = 1;
+let useGrams = false;
+let favorites = JSON.parse(localStorage.getItem('sc_favorites') || '{}');
+let creationFavs = JSON.parse(localStorage.getItem('sc_creation_favs') || '{}');
+let notes = JSON.parse(localStorage.getItem('sc_notes') || '{}');
+
+// ══════════════════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════════════════
+const RECIPES = [
+  {
+    id: 'vanilla-cake',
+    name: 'Classic Vanilla Cake',
+    category: 'cakes',
+    emoji: '🎂',
+    prep: '25 min',
+    bake: '35 min',
+    servings: 12,
+    tags: ['vegan', 'vanilla', 'classic'],
+    description: 'A light, fluffy vanilla cake that forms the perfect base for any occasion. No eggs, no dairy—just pure, delicious flavor.',
+    sourceUrl: 'https://minimalistbaker.com',
+    hasVinegar: true,
+    ingredients: [
+      { id: 'i1', name: 'All-purpose flour', amount: 2, unit: 'cup', grams: 240 },
+      { id: 'i2', name: 'Granulated sugar', amount: 1.5, unit: 'cup', grams: 300 },
+      { id: 'i3', name: 'Baking soda', amount: 1, unit: 'tsp', grams: 5 },
+      { id: 'i4', name: 'Baking powder', amount: 1.5, unit: 'tsp', grams: 6 },
+      { id: 'i5', name: 'Salt', amount: 0.5, unit: 'tsp', grams: 3 },
+      { id: 'i6', name: 'Oat milk (room temp)', amount: 1, unit: 'cup', grams: 240 },
+      { id: 'i7', name: 'Neutral oil (canola or sunflower)', amount: 0.5, unit: 'cup', grams: 110 },
+      { id: 'i8', name: 'Vanilla extract', amount: 2, unit: 'tsp', grams: 8 },
+      { id: 'i9', name: 'Lemon juice (substituted for apple cider vinegar)', amount: 1, unit: 'tbsp', grams: 15, isSubstituted: true, originalName: 'Apple cider vinegar' },
+    ],
+    steps: [
+      { title: 'Preheat & Prep', text: 'Preheat your oven to 350°F (175°C). Grease two 8-inch round cake pans and line with parchment paper.', technique: 'how-to-line-pan' },
+      { title: 'Mix dry ingredients', text: 'In a large bowl, whisk together flour, sugar, baking soda, baking powder, and salt until evenly combined.' },
+      { title: 'Combine wet ingredients', text: 'In a separate bowl or measuring cup, whisk together oat milk, oil, vanilla extract, and lemon juice. Let stand 1 minute — it will slightly curdle, acting as a buttermilk substitute.', tip: 'The lemon juice reacts with baking soda for extra lift — do not skip!' },
+      { title: 'Make batter', text: 'Pour wet ingredients into dry ingredients and stir gently until just combined. Do not overmix — a few lumps are perfectly fine.' },
+      { title: 'Bake', text: 'Divide batter evenly between prepared pans. Bake for 30–35 minutes, until a toothpick inserted in the center comes out clean.' },
+      { title: 'Cool', text: 'Let cakes cool in pans for 15 minutes, then turn out onto a wire rack to cool completely before frosting.' },
+    ]
+  },
+  {
+    id: 'chocolate-cupcakes',
+    name: 'Fudgy Chocolate Cupcakes',
+    category: 'cupcakes',
+    emoji: '🧁',
+    prep: '20 min',
+    bake: '22 min',
+    servings: 12,
+    tags: ['vegan', 'chocolate', 'fudgy'],
+    description: 'Deeply chocolatey, moist, and impossibly fudgy cupcakes. The secret is blooming cocoa in hot coffee.',
+    sourceUrl: 'https://minimalistbaker.com',
+    hasVinegar: false,
+    ingredients: [
+      { id: 'c1', name: 'All-purpose flour', amount: 1, unit: 'cup', grams: 120 },
+      { id: 'c2', name: 'Dutch-process cocoa powder', amount: 0.333, unit: 'cup', grams: 30 },
+      { id: 'c3', name: 'Granulated sugar', amount: 0.75, unit: 'cup', grams: 150 },
+      { id: 'c4', name: 'Baking soda', amount: 1, unit: 'tsp', grams: 5 },
+      { id: 'c5', name: 'Salt', amount: 0.25, unit: 'tsp', grams: 1.5 },
+      { id: 'c6', name: 'Hot strong coffee', amount: 0.75, unit: 'cup', grams: 180 },
+      { id: 'c7', name: 'Neutral oil', amount: 0.25, unit: 'cup', grams: 55 },
+      { id: 'c8', name: 'Vanilla extract', amount: 1, unit: 'tsp', grams: 4 },
+      { id: 'c9', name: 'Flax egg (2 tbsp ground flax + 6 tbsp water)', amount: 1, unit: 'flax egg', grams: null, technique: 'flaxseed-egg' },
+    ],
+    steps: [
+      { title: 'Bloom the cocoa', text: 'Pour hot coffee over cocoa powder and whisk until smooth. Let cool to room temperature.' },
+      { title: 'Make flax egg', text: 'Whisk ground flaxseed with water and refrigerate 10 minutes until gel-like.', technique: 'flaxseed-egg', tip: 'See the flaxseed egg technique page for full instructions.' },
+      { title: 'Preheat & Line', text: 'Preheat oven to 350°F. Line a 12-cup muffin tin with cupcake liners. Place rice under each liner for best results.', technique: null, tip: 'Rice under the liner keeps bottoms flat — see Tips & Tricks!' },
+      { title: 'Mix dry ingredients', text: 'In a large bowl, whisk flour, sugar, baking soda, and salt together.' },
+      { title: 'Combine everything', text: 'Add the cooled cocoa mixture, oil, vanilla, and flax egg to the dry ingredients. Stir until smooth.' },
+      { title: 'Bake', text: 'Fill liners ⅔ full. Bake 20–22 minutes until a toothpick comes out with just a few moist crumbs.' },
+    ]
+  },
+  {
+    id: 'snickerdoodles',
+    name: 'Soft Snickerdoodle Cookies',
+    category: 'cookies',
+    emoji: '🍪',
+    prep: '15 min',
+    bake: '12 min',
+    servings: 24,
+    tags: ['eggless', 'cinnamon', 'soft'],
+    description: 'Pillowy, cinnamon-sugar cookies with that signature snickerdoodle tang. Egg-free and endlessly snackable.',
+    sourceUrl: null,
+    hasVinegar: false,
+    ingredients: [
+      { id: 's1', name: 'All-purpose flour', amount: 2.75, unit: 'cup', grams: 330 },
+      { id: 's2', name: 'Vegan butter (softened)', amount: 1, unit: 'cup', grams: 227 },
+      { id: 's3', name: 'Granulated sugar', amount: 1.5, unit: 'cup', grams: 300 },
+      { id: 's4', name: 'Almond milk', amount: 3, unit: 'tbsp', grams: 45 },
+      { id: 's5', name: 'Vanilla extract', amount: 2, unit: 'tsp', grams: 8 },
+      { id: 's6', name: 'Cream of tartar', amount: 2, unit: 'tsp', grams: 6 },
+      { id: 's7', name: 'Baking soda', amount: 1, unit: 'tsp', grams: 5 },
+      { id: 's8', name: 'Salt', amount: 0.5, unit: 'tsp', grams: 3 },
+      { id: 's9', name: 'Cinnamon (for rolling)', amount: 2, unit: 'tsp', grams: 4 },
+      { id: 's10', name: 'Sugar (for rolling)', amount: 3, unit: 'tbsp', grams: 36 },
+    ],
+    steps: [
+      { title: 'Cream butter & sugar', text: 'Beat vegan butter and sugar together until light and fluffy, about 3 minutes. Add almond milk and vanilla, mix to combine.' },
+      { title: 'Add dry ingredients', text: 'Stir in flour, cream of tartar, baking soda, and salt until a soft dough forms. Chill 30 minutes.' },
+      { title: 'Preheat', text: 'Preheat oven to 375°F. Line baking sheets with parchment.' },
+      { title: 'Roll & coat', text: 'Mix cinnamon and sugar in a small bowl. Roll dough into 1-inch balls, then roll each in cinnamon sugar.' },
+      { title: 'Bake', text: 'Place 2 inches apart on prepared baking sheets. Bake 10–12 minutes — they should look slightly underdone. They firm up as they cool!' },
+    ]
+  },
+  {
+    id: 'vegan-buttercream',
+    name: 'Fluffy Vegan Buttercream',
+    category: 'frosting',
+    emoji: '🧈',
+    prep: '10 min',
+    bake: '0 min',
+    servings: 12,
+    tags: ['vegan', 'frosting', 'piping'],
+    description: 'A stable, fluffy buttercream that pipes beautifully and holds its shape. Perfect for cakes, cupcakes, and decorating.',
+    sourceUrl: null,
+    hasVinegar: false,
+    ingredients: [
+      { id: 'b1', name: 'Vegan butter (cold)', amount: 1, unit: 'cup', grams: 227 },
+      { id: 'b2', name: 'Powdered sugar (sifted)', amount: 4, unit: 'cup', grams: 480 },
+      { id: 'b3', name: 'Oat milk or coconut cream', amount: 3, unit: 'tbsp', grams: 45 },
+      { id: 'b4', name: 'Vanilla extract', amount: 1.5, unit: 'tsp', grams: 6 },
+      { id: 'b5', name: 'Salt', amount: 0.25, unit: 'tsp', grams: 1.5 },
+    ],
+    steps: [
+      { title: 'Beat the butter', text: 'Beat cold vegan butter alone for 3–4 minutes until white and creamy. This step is crucial for light, fluffy results.' },
+      { title: 'Add sugar gradually', text: 'Add sifted powdered sugar 1 cup at a time, beating on low to start, then increasing to high speed.' },
+      { title: 'Add liquid & flavor', text: 'Add oat milk, vanilla, and salt. Beat on high 3–4 minutes until very fluffy and smooth.' },
+      { title: 'Adjust consistency', text: 'For stiffer piping: add more powdered sugar. For spreading: add 1 more tbsp oat milk.', technique: 'piping-bag', tip: 'See the piping bag technique for decoration tips.' },
+    ]
+  }
+];
+
+const CREATIONS = [
+  {
+    id: 'cr1', name: 'Ombre Rose Birthday Cake', emoji: '🌹',
+    event: 'birthday', date: '2024-03-15',
+    base: 'Vanilla Sponge', filling: 'Strawberry Jam + Vanilla Buttercream',
+    decorations: 'Pink ombre Swiss meringue buttercream, sugar roses',
+    favorite: true
+  },
+  {
+    id: 'cr2', name: 'Chocolate Drip Graduation Cake', emoji: '🎓',
+    event: 'graduation', date: '2024-05-20',
+    base: 'Fudgy Chocolate Cake', filling: 'Chocolate Ganache',
+    decorations: 'Vegan chocolate drip, gold leaf, congratulations topper',
+    favorite: false
+  },
+  {
+    id: 'cr3', name: 'Floral Wedding Cupcakes', emoji: '💐',
+    event: 'wedding', date: '2024-06-08',
+    base: 'Vanilla Cupcakes', filling: 'Lemon Curd',
+    decorations: 'White buttercream, piped roses, dried flowers',
+    favorite: true
+  },
+  {
+    id: 'cr4', name: 'Holiday Wreath Cookies', emoji: '🎄',
+    event: 'holiday', date: '2024-12-20',
+    base: 'Sugar Cookies', filling: 'N/A',
+    decorations: 'Royal icing, sprinkles, edible gold dust',
+    favorite: false
+  }
+];
+
+const PRODUCTS = {
+  cakes: [
+    { name: 'Mini Cake', icon: '🎂', desc: 'Perfect for 1–4 people. 4" round, one layer.', pricing: [{ size: '4" round', serves: '1–4', price: '$35' }] },
+    { name: 'Standard Cake', icon: '🎂', desc: 'The classic. Two-layer 6" or 8" round cake.', pricing: [{ size: '6" round', serves: '6–8', price: '$55' }, { size: '8" round', serves: '10–14', price: '$75' }] },
+    { name: 'Tiered Cake', icon: '🎂', desc: 'Stunning two-tier showstopper for weddings & events.', pricing: [{ size: '6" + 4"', serves: '15–20', price: '$120' }, { size: '8" + 6"', serves: '25–30', price: '$175' }] },
+  ],
+  cupcakes: [
+    { name: 'Cupcake Dozen', icon: '🧁', desc: 'Classic dozen with your choice of flavor and frosting.', pricing: [{ size: 'Standard (12)', serves: '12', price: '$42' }] },
+    { name: 'Cupcake Half-Dozen', icon: '🧁', desc: 'Six cupcakes, perfect for small gatherings.', pricing: [{ size: 'Standard (6)', serves: '6', price: '$24' }] },
+    { name: 'Mini Cupcakes', icon: '🧁', desc: 'Bite-size mini cupcakes, great for parties.', pricing: [{ size: 'Mini (24)', serves: '24', price: '$38' }, { size: 'Mini (48)', serves: '48', price: '$68' }] },
+  ],
+  cookies: [
+    { name: 'Cookie Box', icon: '🍪', desc: 'Mixed or single-flavor cookies, beautifully packaged.', pricing: [{ size: 'Small (12)', serves: '12', price: '$28' }, { size: 'Large (24)', serves: '24', price: '$48' }] },
+    { name: 'Decorated Cookies', icon: '🍪', desc: 'Custom-decorated sugar cookies for any occasion.', pricing: [{ size: 'Set of 6', serves: '6', price: '$32' }, { size: 'Set of 12', serves: '12', price: '$58' }] },
+  ],
+  other: [
+    { name: 'Custom Creation', icon: '✨', desc: 'Have a special request? Let\'s design something unique together.', pricing: [{ size: 'Inquire', serves: 'Varies', price: 'Custom quote' }] },
+    { name: 'Baking Box', icon: '📦', desc: 'A curated box of assorted baked goods — perfect as a gift.', pricing: [{ size: 'Small', serves: '2–4', price: '$45' }, { size: 'Large', serves: '6–10', price: '$85' }] },
+  ]
+};
+
+const TECHNIQUES = [
+  {
+    id: 'flaxseed-egg', icon: '🌾', name: 'Flaxseed Egg',
+    preview: 'A simple egg substitute that adds binding without any animal products. Perfect for cookies, cakes, and more.',
+    steps: [
+      'Measure 1 tablespoon of ground flaxseed (not whole seeds — they must be ground).',
+      'Add 3 tablespoons of cold water and whisk well with a fork.',
+      'Refrigerate for at least 10–15 minutes until the mixture becomes thick and gel-like.',
+      'Use immediately in your recipe just as you would use one egg. Works best in dense baked goods like brownies, cookies, and dense cakes.',
+      'Note: Flax eggs don\'t provide lift like real eggs — combine with proper leavening agents (baking powder/soda) for best results.',
+    ],
+    tip: 'Chia seeds also work using the same ratio! Chia eggs are more neutral in flavor.',
+    relatedRecipes: ['chocolate-cupcakes']
+  },
+  {
+    id: 'piping-bag', icon: '🎨', name: 'How to Use a Piping Bag',
+    preview: 'Master piping and you\'ll transform any cake from homemade to professional-looking. These tips make it easy.',
+    steps: [
+      'Choose the right tip: large round tips for rosettes, star tips for swirls, petal tips for flowers.',
+      'Fit the coupler inside the bag, then press the tip onto the coupler and secure with the ring.',
+      'Fold the bag down over your hand by 3–4 inches, then spoon in buttercream — only fill halfway.',
+      'Squeeze out any air bubbles from the top and twist the bag closed just above the frosting.',
+      'Hold the bag at a 90° angle for rosettes, 45° for swirls. Apply even, consistent pressure.',
+      'Practice on parchment paper first! Pipe, scrape back, repeat until you have the motion.',
+    ],
+    tip: 'Cold buttercream pipes more cleanly. If yours is too soft, refrigerate the filled bag for 10 minutes.',
+    relatedRecipes: ['vegan-buttercream']
+  },
+  {
+    id: 'melting-chocolate', icon: '🍫', name: 'Melting Chocolate',
+    preview: 'Properly melted chocolate is silky, smooth, and perfect for drips, ganache, and dipping. Avoid the common mistakes.',
+    steps: [
+      'Use a double boiler: set a heatproof bowl over a pot of barely simmering water. The bowl should NOT touch the water.',
+      'Chop chocolate into even pieces for uniform melting. Chips work but are designed to hold their shape, so bars melt more smoothly.',
+      'Stir constantly with a rubber spatula as the chocolate melts. Remove from heat before it\'s completely melted — residual heat finishes the job.',
+      'For microwave melting: use 50% power in 20-second increments, stirring between each round.',
+      'Critical: keep all water away from melting chocolate. Even a drop can cause the chocolate to "seize" and become grainy.',
+      'If chocolate seizes, add 1 teaspoon of warm neutral oil and stir vigorously — it can sometimes be rescued.',
+    ],
+    tip: 'Add a tablespoon of coconut oil when melting for a glossier, thinner chocolate perfect for drip cakes.',
+    relatedRecipes: []
+  },
+  {
+    id: 'how-to-line-pan', icon: '⬛', name: 'How to Line a Cake Pan',
+    preview: 'Properly lined pans mean cakes release cleanly every time. No more stuck cakes or broken layers.',
+    steps: [
+      'Trace the bottom of your cake pan onto parchment paper using a pen or pencil.',
+      'Cut just inside the line so the circle fits neatly inside the pan.',
+      'Grease the sides and bottom of the pan generously with vegan butter or coconut oil.',
+      'Place the parchment circle in the bottom of the pan and press flat.',
+      'For extra insurance, dust the greased sides with flour and tap out the excess.',
+      'Optional: grease the top of the parchment as well for the easiest possible release.',
+    ],
+    tip: 'Cut parchment strips to line the sides too for tall cakes — especially helpful for cheesecakes and layer cakes with delicate edges.',
+    relatedRecipes: ['vanilla-cake']
+  },
+  {
+    id: 'vegan-substitutes', icon: '🌱', name: 'Vegan vs Eggless Substitutes',
+    preview: 'Understand the difference between vegan and eggless baking, and which substitutes work best for each application.',
+    steps: [
+      'Vegan = no animal products at all (no eggs, no dairy, no honey). Eggless = no eggs but may include dairy.',
+      'Egg substitutes for binding: flax egg (1 tbsp ground flax + 3 tbsp water), chia egg (same ratio), or commercial egg replacer.',
+      'Egg substitutes for lift: increase baking powder by ¼ tsp per egg replaced, or add an extra splash of liquid.',
+      'Dairy milk → plant-based milk (oat, almond, soy, coconut) in a 1:1 ratio. Soy milk froths best for lighter textures.',
+      'Butter → vegan butter (Miyoko\'s or Earth Balance recommended) in a 1:1 ratio. Coconut oil works at 80% the amount.',
+      'Buttermilk → plant milk + 1 tablespoon lemon juice per cup. Let sit 5 minutes before using.',
+      'Heavy cream → full-fat coconut cream, chilled overnight and whipped.',
+    ],
+    tip: 'For the most reliable results across all recipes on this site, Miyoko\'s vegan butter and oat milk are Saanji\'s go-to choices.',
+    relatedRecipes: ['vanilla-cake', 'chocolate-cupcakes']
+  }
+];
+
+const TIPS = [
+  {
+    icon: '🍚',
+    title: 'Rice Under Cupcake Liners',
+    text: 'Place a thin layer of uncooked rice in the bottom of each muffin cup before adding the liner. The rice prevents the bottoms of cupcakes from doming or bubbling up, resulting in perfectly flat-bottomed cupcakes that sit evenly on any surface.'
+  },
+  {
+    icon: '🌡️',
+    title: 'Room Temperature Ingredients',
+    text: 'Always use room temperature plant milk, vegan butter, and any other cold ingredients unless the recipe specifies otherwise. Cold ingredients don\'t emulsify well and can cause lumpy batters or split frostings.'
+  },
+  {
+    icon: '⚖️',
+    title: 'Weigh Your Flour',
+    text: 'A cup of flour can range from 120g to 170g depending on how it\'s scooped. Always spoon flour into the measuring cup and level off, or better yet — use a kitchen scale. Overpacked flour is the #1 reason cakes turn out dense.'
+  },
+  {
+    icon: '❄️',
+    title: 'Chill Your Buttercream',
+    text: 'For the cleanest frosting finish, apply a thin crumb coat and refrigerate for 20 minutes before applying the final layer. This locks in crumbs and makes the outer layer smooth and professional.'
+  },
+  {
+    icon: '🍋',
+    title: 'Lemon Juice = Vinegar Substitute',
+    text: 'All vinegar in these recipes is automatically substituted with lemon juice in a 1:1 ratio. This works perfectly — the acidity activates baking soda the same way, and the flavor is indistinguishable once baked.'
+  },
+  {
+    icon: '🔪',
+    title: 'Hot Knife for Clean Slices',
+    text: 'Dip a long knife in hot water and wipe dry before each slice. The warmth glides through buttercream and ganache without dragging or tearing. Especially useful for layered cakes and drip cakes.'
+  },
+  {
+    icon: '📏',
+    title: 'Cake Strips for Even Layers',
+    text: 'Wrap dampened cake strips (or strips of damp old towels) around the outside of your pans before baking. They insulate the edges, ensuring your cake bakes evenly from center to edge without domed tops.'
+  },
+  {
+    icon: '🧊',
+    title: 'Freeze for Easy Decorating',
+    text: 'After baking and cooling, wrap cake layers individually and freeze for at least 1 hour (or overnight). Frozen or semi-frozen layers are much easier to level, stack, and frost without crumbling.'
+  }
+];
+
+// ══════════════════════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════════════════════
+function navigate(page, data) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  
+  const pageEl = document.getElementById('page-' + page);
+  if (pageEl) {
+    pageEl.classList.add('active');
+    const link = document.querySelector(`[data-page="${page}"]`);
+    if (link) link.classList.add('active');
+  }
+  
+  currentPage = page;
+  window.scrollTo(0, 0);
+
+  if (page === 'home') renderFeatured();
+  if (page === 'recipes') renderRecipes();
+  if (page === 'creations') renderCreations();
+  if (page === 'products') renderProducts('cakes');
+  if (page === 'techniques') renderTechniques();
+  if (page === 'tips') renderTips();
+  if (page === 'recipe-detail' && data) openRecipeDetail(data);
+  if (page === 'technique-detail' && data) openTechniqueDetail(data);
+}
+
+// ══════════════════════════════════════════════════════
+// MEASUREMENT HELPERS
+// ══════════════════════════════════════════════════════
+const FRACTIONS = {0.125:'⅛', 0.25:'¼', 0.333:'⅓', 0.5:'½', 0.667:'⅔', 0.75:'¾'};
+
+function formatAmount(amount, unit, scale) {
+  const scaled = amount * scale;
+  
+  if (useGrams) {
+    return { amount: scaled, unit: 'g', display: '' };
+  }
+
+  // Auto-convert: if cups become < 1/4, convert to tbsp or tsp
+  if (unit === 'cup') {
+    if (scaled < 0.0625) return formatTsp(scaled * 48);
+    if (scaled < 0.25) return formatTbsp(scaled * 16);
+  }
+  if (unit === 'tbsp' && scaled < 1) return formatTsp(scaled * 3);
+
+  return { amount: scaled, unit, display: formatFraction(scaled) + ' ' + unit };
+}
+
+function formatTbsp(n) {
+  const rounded = Math.round(n * 2) / 2;
+  return { amount: rounded, unit: 'tbsp', display: formatFraction(rounded) + ' tbsp' };
+}
+
+function formatTsp(n) {
+  const rounded = Math.round(n * 4) / 4;
+  return { amount: rounded, unit: 'tsp', display: formatFraction(rounded) + ' tsp' };
+}
+
+function formatFraction(n) {
+  if (n === Math.floor(n)) return n.toString();
+  const whole = Math.floor(n);
+  const frac = n - whole;
+  const fracKey = Object.keys(FRACTIONS).reduce((a, b) => Math.abs(b - frac) < Math.abs(a - frac) ? b : a);
+  const fracStr = FRACTIONS[fracKey] || frac.toFixed(2);
+  return whole > 0 ? `${whole} ${fracStr}` : fracStr;
+}
+
+function formatIngredientDisplay(ing, scale) {
+  if (!ing.unit || ing.unit === 'flax egg') {
+    return { display: formatFraction(ing.amount * scale) + (ing.unit ? ' ' + ing.unit : ''), gDisplay: '' };
+  }
+  const f = formatAmount(ing.amount, ing.unit, scale);
+  const gDisplay = (ing.grams && useGrams) ? Math.round(ing.grams * scale) + 'g' : '';
+  return { display: f.display, gDisplay };
+}
+
+// ══════════════════════════════════════════════════════
+// RENDER RECIPES
+// ══════════════════════════════════════════════════════
+function renderFeatured() {
+  const container = document.getElementById('featured-recipes');
+  const featured = RECIPES.slice(0, 3);
+  container.innerHTML = featured.map(r => recipeCardHTML(r)).join('');
+}
+
+function renderRecipes(filter = 'all') {
+  const container = document.getElementById('all-recipes');
+  let recipes = [...RECIPES];
+  if (filter === 'favorites') recipes = recipes.filter(r => favorites[r.id]);
+  else if (filter !== 'all') recipes = recipes.filter(r => r.category === filter);
+  
+  if (recipes.length === 0) {
+    container.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="empty-icon">🔍</div>
+      <div class="empty-title">No recipes found</div>
+      <div class="empty-text">Try a different filter${isAdmin ? ', or add a new recipe below.' : '.'}</div>
+    </div>`;
+  } else {
+    container.innerHTML = recipes.map(r => recipeCardHTML(r)).join('');
+  }
+  
+  document.getElementById('admin-add-recipe').style.display = isAdmin ? 'block' : 'none';
+}
+
+function recipeCardHTML(r) {
+  const isFav = favorites[r.id];
+  return `<div class="recipe-card" onclick="navigate('recipe-detail', '${r.id}')">
+    <div class="recipe-card-img">
+      <span>${r.emoji}</span>
+      <span class="recipe-card-badge">${r.category}</span>
+      <button class="recipe-card-fav" onclick="event.stopPropagation();toggleFav('${r.id}')" title="Favorite">${isFav ? '♥' : '♡'}</button>
+    </div>
+    <div class="recipe-card-body">
+      <div class="recipe-card-title">${r.name}</div>
+      <div class="recipe-card-meta">
+        <span>⏱ ${r.prep}</span>
+        <span>🔥 ${r.bake}</span>
+        <span>👤 ${r.servings}</span>
+      </div>
+      <div class="recipe-card-tags">
+        ${r.tags.map(t => `<span class="tag ${t === 'vegan' ? 'vegan' : t === 'eggless' ? 'eggless' : ''}">${t}</span>`).join('')}
+      </div>
+    </div>
+  </div>`;
+}
+
+function filterRecipes(filter, btn) {
+  document.querySelectorAll('#page-recipes .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderRecipes(filter);
+}
+
+function toggleFav(id) {
+  favorites[id] = !favorites[id];
+  localStorage.setItem('sc_favorites', JSON.stringify(favorites));
+  // Re-render heart on card
+  const cards = document.querySelectorAll('.recipe-card-fav, .recipe-back');
+  renderFeatured();
+  renderRecipes();
+  if (currentPage === 'recipe-detail') {
+    const btn = document.getElementById('fav-btn-detail');
+    if (btn) btn.textContent = favorites[id] ? '♥ Favorited' : '♡ Favorite';
+  }
+  showToast(favorites[id] ? 'Added to favorites!' : 'Removed from favorites');
+}
+
+// ══════════════════════════════════════════════════════
+// RECIPE DETAIL
+// ══════════════════════════════════════════════════════
+function openRecipeDetail(id) {
+  const recipe = RECIPES.find(r => r.id === id);
+  if (!recipe) return;
+  currentRecipe = recipe;
+  currentScale = 1;
+
+  renderRecipeDetail(recipe);
+}
+
+function renderRecipeDetail(recipe) {
+  const container = document.getElementById('recipe-detail-content');
+  const isFav = favorites[recipe.id];
+  
+  container.innerHTML = `
+  <div class="page-breadcrumb">
+    <a onclick="navigate('recipes')">Recipes</a>
+    <span>/</span>
+    <span class="current">${recipe.name}</span>
+  </div>
+  <div class="recipe-detail">
+    <button class="recipe-back" onclick="navigate('recipes')">← Back to Recipes</button>
+    
+    <div class="recipe-detail-header">
+      <h1 class="recipe-detail-title">${recipe.emoji} ${recipe.name}</h1>
+      <p style="font-size:0.92rem;color:var(--text-muted);margin:0.75rem 0 1.25rem;line-height:1.65">${recipe.description}</p>
+      
+      ${recipe.hasVinegar ? `<div class="vinegar-notice">🍋 All vinegar substituted with lemon juice (1:1)</div>` : ''}
+      
+      <div class="recipe-detail-meta">
+        <span>⏱ Prep: <strong>${recipe.prep}</strong></span>
+        <span>🔥 Bake: <strong>${recipe.bake}</strong></span>
+        <span>👤 Serves: <strong id="serves-display">${recipe.servings}</strong></span>
+        ${recipe.sourceUrl ? `<span><a href="${recipe.sourceUrl}" target="_blank" style="color:var(--dusty-rose);font-size:0.8rem">View original recipe ↗</a></span>` : ''}
+      </div>
+
+      <div class="recipe-actions">
+        <div class="scale-control">
+          <span class="scale-label">Scale</span>
+          ${[0.25, 0.5, 1, 1.5, 2].map(s => `<button class="scale-btn ${s === 1 ? 'active' : ''}" onclick="setScale(${s}, this)">${s === 0.25 ? '¼×' : s === 0.5 ? '½×' : s === 1 ? '1×' : s === 1.5 ? '1½×' : '2×'}</button>`).join('')}
+        </div>
+        <div class="unit-toggle">
+          <button class="unit-btn active" id="btn-standard" onclick="setUnit('standard')">Standard</button>
+          <button class="unit-btn" id="btn-grams" onclick="setUnit('grams')">Grams</button>
+        </div>
+        <button id="fav-btn-detail" class="share-btn" onclick="toggleFav('${recipe.id}')">${isFav ? '♥ Favorited' : '♡ Favorite'}</button>
+        <div style="position:relative">
+          <button class="share-btn" onclick="toggleShareDropdown(event)">⤴ Share</button>
+          <div class="share-dropdown" id="share-dropdown" style="display:none">
+            <button class="share-option" onclick="shareRecipe('recipe-only')">📋 Recipe only</button>
+            <button class="share-option" onclick="shareRecipe('result-only')">🖼 Result + recipe</button>
+            <button class="share-option" onclick="shareRecipe('pdf')">⬇ Download PDF</button>
+            <button class="share-option" onclick="shareRecipe('link')">🔗 Copy link</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-layout">
+      <div class="ingredients-panel">
+        <div class="panel-title">Ingredients</div>
+        <div id="ingredients-list"></div>
+      </div>
+      <div>
+        <div class="panel-title" style="font-family:var(--font-display);font-size:1.2rem;margin-bottom:1.5rem">Method</div>
+        <div id="steps-list"></div>
+        
+        <div class="notes-section">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem">
+            <span style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted)">📝 My Notes</span>
+            <span style="font-size:0.72rem;color:var(--text-light)">Auto-saved</span>
+          </div>
+          <textarea class="notes-textarea" id="recipe-notes" placeholder="Add your notes, modifications, or reminders here…" oninput="saveNotes('${recipe.id}', this.value)">${notes[recipe.id] || ''}</textarea>
+        </div>
+      </div>
+    </div>
+  </div>`;
+
+  renderIngredients(recipe, currentScale);
+  renderSteps(recipe);
+}
+
+function renderIngredients(recipe, scale) {
+  const list = document.getElementById('ingredients-list');
+  if (!list) return;
+  list.innerHTML = recipe.ingredients.map(ing => {
+    const { display, gDisplay } = formatIngredientDisplay(ing, scale);
+    const name = ing.isSubstituted
+      ? `<span style="color:var(--sage)">${ing.name}</span>`
+      : ing.name;
+    const note = ing.isSubstituted
+      ? `<span class="ingredient-note">substituted for ${ing.originalName} (1:1)</span>`
+      : '';
+    const techLink = ing.technique
+      ? `<button class="step-technique-link" onclick="navigate('technique-detail','${ing.technique}')">→ See technique</button>`
+      : '';
+    const gramAmt = (useGrams && ing.grams) ? Math.round(ing.grams * scale) + 'g' : display;
+    return `<div class="ingredient-item">
+      <div class="ingredient-amount">${gramAmt}</div>
+      <div class="ingredient-name">${name}${note}${techLink}</div>
+    </div>`;
+  }).join('');
+  
+  const sd = document.getElementById('serves-display');
+  if (sd) sd.textContent = Math.round(recipe.servings * scale);
+}
+
+function renderSteps(recipe) {
+  const list = document.getElementById('steps-list');
+  if (!list) return;
+  list.innerHTML = recipe.steps.map((step, i) => {
+    const techLink = (step.technique || (step.text && step.text.includes('technique')))
+      ? (TECHNIQUES.find(t => t.id === step.technique)
+          ? `<button class="step-technique-link" onclick="navigate('technique-detail','${step.technique}')">→ See technique: ${TECHNIQUES.find(t=>t.id===step.technique).name}</button>`
+          : '')
+      : '';
+    const tip = step.tip ? `<div class="step-tip"><strong>Tip:</strong> ${step.tip}</div>` : '';
+    return `<div class="step-item">
+      <div class="step-number">${i + 1}</div>
+      <div class="step-content">
+        <div class="step-title">${step.title}</div>
+        <div class="step-text">${step.text}</div>
+        ${techLink}${tip}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function setScale(scale, btn) {
+  currentScale = scale;
+  document.querySelectorAll('.scale-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (currentRecipe) renderIngredients(currentRecipe, scale);
+}
+
+function setUnit(unit) {
+  useGrams = unit === 'grams';
+  document.getElementById('btn-standard').classList.toggle('active', !useGrams);
+  document.getElementById('btn-grams').classList.toggle('active', useGrams);
+  if (currentRecipe) renderIngredients(currentRecipe, currentScale);
+}
+
+function saveNotes(id, text) {
+  notes[id] = text;
+  localStorage.setItem('sc_notes', JSON.stringify(notes));
+}
+
+function toggleShareDropdown(e) {
+  e.stopPropagation();
+  const dd = document.getElementById('share-dropdown');
+  dd.style.display = dd.style.display === 'none' ? 'block' : 'none';
+}
+
+document.addEventListener('click', () => {
+  const dd = document.getElementById('share-dropdown');
+  if (dd) dd.style.display = 'none';
+});
+
+function shareRecipe(type) {
+  const dd = document.getElementById('share-dropdown');
+  if (dd) dd.style.display = 'none';
+  
+  const msgs = {
+    'recipe-only': 'Recipe copied to clipboard (recipe only)',
+    'result-only': 'Recipe with result photo copied to clipboard',
+    'pdf': 'PDF download initiated!',
+    'link': 'Shareable link copied to clipboard!'
+  };
+  
+  if (type === 'link' && currentRecipe) {
+    const url = `${window.location.href.split('?')[0]}?recipe=${currentRecipe.id}`;
+    navigator.clipboard?.writeText(url).catch(() => {});
+  }
+  
+  if (type === 'pdf' && currentRecipe) {
+    window.print();
+    return;
+  }
+  
+  showToast(msgs[type] || 'Shared!');
+}
+
+// ══════════════════════════════════════════════════════
+// CREATIONS
+// ══════════════════════════════════════════════════════
+function renderCreations(filter = 'all') {
+  const container = document.getElementById('creations-gallery');
+  let items = [...CREATIONS];
+  if (filter === 'favorites') items = items.filter(c => creationFavs[c.id] || c.favorite);
+  else if (filter !== 'all') items = items.filter(c => c.event === filter);
+  
+  container.innerHTML = items.map(c => {
+    const isFav = creationFavs[c.id] !== undefined ? creationFavs[c.id] : c.favorite;
+    const dateStr = c.date ? new Date(c.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) : '';
+    const eventLabel = { birthday:'🎂 Birthday', wedding:'💍 Wedding', graduation:'🎓 Graduation', holiday:'🎄 Holiday', other:'✨ Other' }[c.event] || c.event;
+    return `<div class="gallery-card">
+      <div class="gallery-img">
+        <span>${c.emoji}</span>
+        <button class="gallery-fav" onclick="toggleCreationFav('${c.id}')">${isFav ? '♥' : '♡'}</button>
+      </div>
+      <div class="gallery-body">
+        <div class="gallery-title">${c.name}</div>
+        <div class="gallery-meta">${eventLabel} · ${dateStr}</div>
+        <div class="gallery-layers">
+          <div class="gallery-layer"><span class="gallery-layer-label">Base</span> ${c.base}</div>
+          <div class="gallery-layer"><span class="gallery-layer-label">Filling</span> ${c.filling}</div>
+          <div class="gallery-layer"><span class="gallery-layer-label">Décor</span> ${c.decorations}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  
+  if (items.length === 0) {
+    container.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="empty-icon">📷</div>
+      <div class="empty-title">Nothing here yet</div>
+      <div class="empty-text">Check back soon for new creations!</div>
+    </div>`;
+  }
+  
+  document.getElementById('admin-add-creation').style.display = isAdmin ? 'block' : 'none';
+}
+
+function filterCreations(filter, btn) {
+  document.querySelectorAll('#page-creations .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCreations(filter);
+}
+
+function toggleCreationFav(id) {
+  const c = CREATIONS.find(x => x.id === id);
+  const current = creationFavs[id] !== undefined ? creationFavs[id] : (c ? c.favorite : false);
+  creationFavs[id] = !current;
+  localStorage.setItem('sc_creation_favs', JSON.stringify(creationFavs));
+  renderCreations();
+  showToast(creationFavs[id] ? 'Added to favorites!' : 'Removed from favorites');
+}
+
+// ══════════════════════════════════════════════════════
+// PRODUCTS
+// ══════════════════════════════════════════════════════
+function renderProducts(category) {
+  const grid = document.getElementById('products-grid');
+  const items = PRODUCTS[category] || [];
+  grid.innerHTML = items.map(p => `
+    <div class="product-card">
+      <div class="product-icon">${p.icon}</div>
+      <div class="product-name">${p.name}</div>
+      <div class="product-desc">${p.desc}</div>
+      <div class="product-pricing">
+        ${p.pricing.map(pr => `
+          <div class="price-row">
+            <span>${pr.size} · serves ${pr.serves}</span>
+            <span class="price-amount">${pr.price}</span>
+          </div>
+        `).join('')}
+      </div>
+      <button class="btn-primary" style="margin-top:0.75rem;font-size:0.78rem" onclick="showToast('Order inquiry sent! Saanji will be in touch.')">Inquire to Order</button>
+    </div>
+  `).join('');
+}
+
+function switchProductTab(category, btn) {
+  document.querySelectorAll('.product-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(category);
+}
+
+// ══════════════════════════════════════════════════════
+// TECHNIQUES
+// ══════════════════════════════════════════════════════
+function renderTechniques() {
+  const grid = document.getElementById('techniques-grid');
+  grid.innerHTML = TECHNIQUES.map(t => `
+    <div class="technique-card" onclick="navigate('technique-detail','${t.id}')">
+      <div class="technique-icon">${t.icon}</div>
+      <div class="technique-title">${t.name}</div>
+      <div class="technique-preview">${t.preview}</div>
+      <div style="margin-top:1rem">
+        <span style="font-size:0.72rem;color:var(--dusty-rose);font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Read technique →</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openTechniqueDetail(id) {
+  const tech = TECHNIQUES.find(t => t.id === id);
+  if (!tech) return;
+  currentTechnique = tech;
+  
+  const related = tech.relatedRecipes.map(rid => RECIPES.find(r => r.id === rid)).filter(Boolean);
+  
+  document.getElementById('technique-detail-content').innerHTML = `
+  <div class="page-breadcrumb">
+    <a onclick="navigate('techniques')">Techniques</a>
+    <span>/</span>
+    <span class="current">${tech.name}</span>
+  </div>
+  <div class="technique-detail">
+    <button class="recipe-back" onclick="navigate('techniques')">← Back to Techniques</button>
+    <div style="font-size:3rem;margin-bottom:1rem">${tech.icon}</div>
+    <h1 class="recipe-detail-title">${tech.name}</h1>
+    <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.7;margin:1rem 0 2rem">${tech.preview}</p>
+    
+    <div class="panel-title" style="margin-bottom:1.25rem">Step by Step</div>
+    ${tech.steps.map((step, i) => `
+      <div class="technique-step">
+        <div class="technique-step-num">${i + 1}</div>
+        <div class="technique-step-text">${step}</div>
+      </div>
+    `).join('')}
+    
+    ${tech.tip ? `<div class="step-tip" style="margin-top:1.5rem"><strong>Pro Tip:</strong> ${tech.tip}</div>` : ''}
+    
+    ${related.length > 0 ? `
+    <div style="margin-top:2.5rem">
+      <div class="panel-title" style="margin-bottom:1.25rem">Used In These Recipes</div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem">
+        ${related.map(r => `<button class="btn-outline" onclick="navigate('recipe-detail','${r.id}')">${r.emoji} ${r.name}</button>`).join('')}
+      </div>
+    </div>
+    ` : ''}
+  </div>`;
+}
+
+// ══════════════════════════════════════════════════════
+// TIPS
+// ══════════════════════════════════════════════════════
+function renderTips() {
+  const grid = document.getElementById('tips-grid');
+  grid.innerHTML = TIPS.map(tip => `
+    <div class="tip-card">
+      <div class="tip-icon">${tip.icon}</div>
+      <div>
+        <div class="tip-title">${tip.title}</div>
+        <div class="tip-text">${tip.text}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ══════════════════════════════════════════════════════
+// ADMIN
+// ══════════════════════════════════════════════════════
+function showAdminLogin() {
+  if (isAdmin) { logoutAdmin(); return; }
+  document.getElementById('admin-modal').style.display = 'flex';
+  setTimeout(() => document.getElementById('admin-password').focus(), 100);
+}
+
+function closeAdminModal() {
+  document.getElementById('admin-modal').style.display = 'none';
+  document.getElementById('admin-password').value = '';
+}
+
+function tryAdminLogin() {
+  const pwd = document.getElementById('admin-password').value;
+  if (pwd === 'saanji2024') {
+    isAdmin = true;
+    closeAdminModal();
+    document.getElementById('admin-toggle-btn').style.display = 'none';
+    document.getElementById('admin-logout-btn').style.display = 'block';
+    document.getElementById('admin-badge-nav').style.display = 'inline-flex';
+    showToast('Welcome, Saanji! Admin mode enabled.');
+    // Refresh current page to show admin controls
+    navigate(currentPage);
+  } else {
+    document.getElementById('admin-password').style.borderColor = 'var(--terracotta)';
+    showToast('Incorrect password — try again.');
+    setTimeout(() => {
+      const el = document.getElementById('admin-password');
+      if (el) el.style.borderColor = '';
+    }, 2000);
+  }
+}
+
+function logoutAdmin() {
+  isAdmin = false;
+  document.getElementById('admin-toggle-btn').style.display = 'block';
+  document.getElementById('admin-logout-btn').style.display = 'none';
+  document.getElementById('admin-badge-nav').style.display = 'none';
+  navigate(currentPage);
+  showToast('Logged out of admin mode.');
+}
+
+async function autofillFromUrl() {
+  const url = document.getElementById('recipe-url-input').value.trim();
+  if (!url) { showToast('Please enter a recipe URL first.'); return; }
+  
+  const btn = document.getElementById('autofill-btn');
+  const iconEl = document.getElementById('autofill-icon');
+  const textEl = document.getElementById('autofill-text');
+  
+  btn.classList.add('loading');
+  iconEl.innerHTML = '<div class="loading-spinner"></div>';
+  textEl.textContent = 'Fetching...';
+  
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{
+          role: 'user',
+          content: `Extract recipe metadata from this URL: ${url}
+          
+Return ONLY a JSON object (no markdown) with these fields:
+{
+  "name": "recipe name",
+  "category": "cakes|cupcakes|cookies|frosting|other",
+  "prep": "X min",
+  "bake": "X min",
+  "tags": ["tag1", "tag2"],
+  "emoji": "relevant emoji"
+}
+
+If you cannot access the URL, make reasonable guesses from the URL itself.`
+        }]
+      })
+    });
+    
+    const data = await response.json();
+    const text = data.content?.[0]?.text || '';
+    const clean = text.replace(/```json|```/g, '').trim();
+    const parsed = JSON.parse(clean);
+    
+    if (parsed.name) document.getElementById('new-recipe-name').value = parsed.name;
+    if (parsed.category) document.getElementById('new-recipe-category').value = parsed.category;
+    if (parsed.prep) document.getElementById('new-recipe-prep').value = parsed.prep;
+    if (parsed.bake) document.getElementById('new-recipe-bake').value = parsed.bake;
+    if (parsed.tags) document.getElementById('new-recipe-tags').value = parsed.tags.join(', ');
+    if (parsed.emoji) document.getElementById('new-recipe-emoji').value = parsed.emoji;
+    
+    showToast('Recipe details autofilled!');
+  } catch (e) {
+    showToast('Could not autofill — please fill in manually.');
+  } finally {
+    btn.classList.remove('loading');
+    iconEl.textContent = '✦';
+    textEl.textContent = 'Autofill';
+  }
+}
+
+function saveNewRecipe() {
+  const name = document.getElementById('new-recipe-name').value.trim();
+  if (!name) { showToast('Please enter a recipe name.'); return; }
+  
+  const newRecipe = {
+    id: 'recipe-' + Date.now(),
+    name,
+    category: document.getElementById('new-recipe-category').value,
+    emoji: document.getElementById('new-recipe-emoji').value || '🍰',
+    prep: document.getElementById('new-recipe-prep').value || 'TBD',
+    bake: document.getElementById('new-recipe-bake').value || 'TBD',
+    servings: 12,
+    tags: document.getElementById('new-recipe-tags').value.split(',').map(s => s.trim()).filter(Boolean),
+    description: 'New recipe — details coming soon.',
+    sourceUrl: document.getElementById('recipe-url-input').value.trim() || null,
+    hasVinegar: false,
+    ingredients: [],
+    steps: []
+  };
+  
+  RECIPES.push(newRecipe);
+  renderRecipes();
+  
+  ['new-recipe-name','new-recipe-prep','new-recipe-bake','new-recipe-tags','new-recipe-emoji','recipe-url-input'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  
+  showToast(`"${name}" added to recipes!`);
+  window.scrollTo(0, 0);
+}
+
+function saveNewCreation() {
+  const name = document.getElementById('new-creation-name').value.trim();
+  if (!name) { showToast('Please enter a creation name.'); return; }
+  
+  const newCreation = {
+    id: 'cr-' + Date.now(),
+    name,
+    emoji: '🎂',
+    event: document.getElementById('new-creation-event').value,
+    date: document.getElementById('new-creation-date').value || new Date().toISOString().split('T')[0],
+    base: document.getElementById('new-creation-base').value || 'TBD',
+    filling: document.getElementById('new-creation-filling').value || 'TBD',
+    decorations: document.getElementById('new-creation-decorations').value || 'TBD',
+    favorite: false
+  };
+  
+  CREATIONS.push(newCreation);
+  renderCreations();
+  
+  ['new-creation-name','new-creation-base','new-creation-filling','new-creation-decorations'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  
+  showToast(`"${name}" added to creations!`);
+  window.scrollTo(0, 0);
+}
+
+function triggerUpload() { document.getElementById('photo-upload').click(); }
+function handlePhotoUpload(input) {
+  if (input.files[0]) showToast(`Photo "${input.files[0].name}" selected`);
+}
+
+// ══════════════════════════════════════════════════════
+// SEARCH
+// ══════════════════════════════════════════════════════
+let searchTimeout;
+function handleSearch(query) {
+  clearTimeout(searchTimeout);
+  if (!query.trim()) return;
+  searchTimeout = setTimeout(() => performSearch(query), 300);
+}
+
+function performSearch(query) {
+  const q = query.toLowerCase();
+  const recipeResults = RECIPES.filter(r =>
+    r.name.toLowerCase().includes(q) ||
+    r.tags.some(t => t.toLowerCase().includes(q)) ||
+    r.category.toLowerCase().includes(q) ||
+    r.description.toLowerCase().includes(q)
+  );
+  
+  const techResults = TECHNIQUES.filter(t =>
+    t.name.toLowerCase().includes(q) ||
+    t.preview.toLowerCase().includes(q)
+  );
+  
+  const tipResults = TIPS.filter(t =>
+    t.title.toLowerCase().includes(q) ||
+    t.text.toLowerCase().includes(q)
+  );
+  
+  const total = recipeResults.length + techResults.length + tipResults.length;
+  document.getElementById('search-count').textContent = total;
+  
+  let html = '';
+  
+  if (recipeResults.length) {
+    html += `<div style="margin-bottom:2.5rem">
+      <div class="section-eyebrow" style="margin-bottom:1.25rem">Recipes (${recipeResults.length})</div>
+      <div class="recipe-grid">${recipeResults.map(r => recipeCardHTML(r)).join('')}</div>
+    </div>`;
+  }
+  
+  if (techResults.length) {
+    html += `<div style="margin-bottom:2.5rem">
+      <div class="section-eyebrow" style="margin-bottom:1.25rem">Techniques (${techResults.length})</div>
+      <div class="technique-grid">${techResults.map(t => `
+        <div class="technique-card" onclick="navigate('technique-detail','${t.id}')">
+          <div class="technique-icon">${t.icon}</div>
+          <div class="technique-title">${t.name}</div>
+          <div class="technique-preview">${t.preview}</div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }
+  
+  if (tipResults.length) {
+    html += `<div>
+      <div class="section-eyebrow" style="margin-bottom:1.25rem">Tips & Tricks (${tipResults.length})</div>
+      <div class="tips-grid">${tipResults.map(t => `
+        <div class="tip-card">
+          <div class="tip-icon">${t.icon}</div>
+          <div>
+            <div class="tip-title">${t.title}</div>
+            <div class="tip-text">${t.text}</div>
+          </div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }
+  
+  if (!html) {
+    html = `<div class="empty-state">
+      <div class="empty-icon">🔍</div>
+      <div class="empty-title">Nothing found for "${query}"</div>
+      <div class="empty-text">Try searching for a recipe name, ingredient, or technique.</div>
+    </div>`;
+  }
+  
+  document.getElementById('search-results-content').innerHTML = html;
+  navigate('search');
+}
+
+// ══════════════════════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════════════════════
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => toast.classList.remove('show'), 3200);
+}
+
+function closeModalOutside(e) {
+  if (e.target.classList.contains('modal-overlay')) {
+    e.target.style.display = 'none';
+  }
+}
+
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// Check URL params for deep linking
+const params = new URLSearchParams(window.location.search);
+if (params.get('recipe')) {
+  navigate('recipe-detail', params.get('recipe'));
+} else {
+  navigate('home');
+}
+</script>
+</body>
+</html>
