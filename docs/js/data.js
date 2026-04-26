@@ -107,12 +107,12 @@ const PRODUCTS = {
   ]
 };
 
-// Static mode: override arrays with embedded server data if available
-if (window._STATIC_TECHNIQUES_READY) {
+// Static mode: replace arrays with embedded data from api.js
+if (window._STATIC_TECHNIQUES_READY && window._STATIC_TECHNIQUES_READY.length) {
   TECHNIQUES.length = 0;
   window._STATIC_TECHNIQUES_READY.forEach(t => TECHNIQUES.push(t));
 }
-if (window._STATIC_TIPS_READY) {
+if (window._STATIC_TIPS_READY && window._STATIC_TIPS_READY.length) {
   TIPS.length = 0;
   window._STATIC_TIPS_READY.forEach(t => TIPS.push(t));
 }
