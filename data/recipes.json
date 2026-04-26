@@ -1,0 +1,601 @@
+[
+  {
+    "id": "vanilla-cake",
+    "name": "Classic Vanilla Cake",
+    "category": "cakes",
+    "emoji": "🎂",
+    "prep": "25 min",
+    "bake": "35 min",
+    "servings": 12,
+    "tags": [
+      "vegan",
+      "vanilla",
+      "classic"
+    ],
+    "description": "A light, fluffy vanilla cake that forms the perfect base for any occasion. No eggs, no dairy—just pure, delicious flavor.",
+    "sourceUrl": "https://minimalistbaker.com",
+    "hasVinegar": true,
+    "photo": null,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "All-purpose flour",
+        "amount": 2,
+        "unit": "cup",
+        "grams": 240
+      },
+      {
+        "id": "i2",
+        "name": "Granulated sugar",
+        "amount": 1.5,
+        "unit": "cup",
+        "grams": 300
+      },
+      {
+        "id": "i3",
+        "name": "Baking soda",
+        "amount": 1,
+        "unit": "tsp",
+        "grams": 5
+      },
+      {
+        "id": "i4",
+        "name": "Baking powder",
+        "amount": 1.5,
+        "unit": "tsp",
+        "grams": 6
+      },
+      {
+        "id": "i5",
+        "name": "Salt",
+        "amount": 0.5,
+        "unit": "tsp",
+        "grams": 3
+      },
+      {
+        "id": "i6",
+        "name": "Oat milk (room temp)",
+        "amount": 1,
+        "unit": "cup",
+        "grams": 240
+      },
+      {
+        "id": "i7",
+        "name": "Neutral oil (canola or sunflower)",
+        "amount": 0.5,
+        "unit": "cup",
+        "grams": 110
+      },
+      {
+        "id": "i8",
+        "name": "Vanilla extract",
+        "amount": 2,
+        "unit": "tsp",
+        "grams": 8
+      },
+      {
+        "id": "i9",
+        "name": "Lemon juice (substituted for apple cider vinegar)",
+        "amount": 1,
+        "unit": "tbsp",
+        "grams": 15,
+        "isSubstituted": true,
+        "originalName": "Apple cider vinegar"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Preheat & Prep",
+        "text": "Preheat your oven to 350°F (175°C). Grease two 8-inch round cake pans and line with parchment paper.",
+        "technique": "how-to-line-pan",
+        "tip": null
+      },
+      {
+        "title": "Mix dry ingredients",
+        "text": "In a large bowl, whisk together flour, sugar, baking soda, baking powder, and salt until evenly combined.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Combine wet ingredients",
+        "text": "In a separate bowl, whisk together oat milk, oil, vanilla extract, and lemon juice. Let stand 1 minute — it will slightly curdle, acting as a buttermilk substitute.",
+        "technique": null,
+        "tip": "The lemon juice reacts with baking soda for extra lift — do not skip!"
+      },
+      {
+        "title": "Make batter",
+        "text": "Pour wet ingredients into dry ingredients and stir gently until just combined. Do not overmix — a few lumps are perfectly fine.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Bake",
+        "text": "Divide batter evenly between prepared pans. Bake for 30–35 minutes, until a toothpick inserted in the center comes out clean.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Cool",
+        "text": "Let cakes cool in pans for 15 minutes, then turn out onto a wire rack to cool completely before frosting.",
+        "technique": null,
+        "tip": null
+      }
+    ],
+    "createdAt": "2026-04-26T00:13:33.198Z",
+    "updatedAt": "2026-04-26T00:13:33.198Z"
+  },
+  {
+    "id": "chocolate-cupcakes",
+    "name": "Fudgy Chocolate Cupcakes",
+    "category": "cupcakes",
+    "emoji": "🧁",
+    "prep": "20 min",
+    "bake": "22 min",
+    "servings": 12,
+    "tags": [
+      "vegan",
+      "chocolate",
+      "fudgy"
+    ],
+    "description": "Deeply chocolatey, moist, and impossibly fudgy cupcakes. The secret is blooming cocoa in hot coffee.",
+    "sourceUrl": null,
+    "hasVinegar": false,
+    "photo": null,
+    "ingredients": [
+      {
+        "id": "c1",
+        "name": "All-purpose flour",
+        "amount": 1,
+        "unit": "cup",
+        "grams": 120
+      },
+      {
+        "id": "c2",
+        "name": "Dutch-process cocoa powder",
+        "amount": 0.333,
+        "unit": "cup",
+        "grams": 30
+      },
+      {
+        "id": "c3",
+        "name": "Granulated sugar",
+        "amount": 0.75,
+        "unit": "cup",
+        "grams": 150
+      },
+      {
+        "id": "c4",
+        "name": "Baking soda",
+        "amount": 1,
+        "unit": "tsp",
+        "grams": 5
+      },
+      {
+        "id": "c5",
+        "name": "Salt",
+        "amount": 0.25,
+        "unit": "tsp",
+        "grams": 1.5
+      },
+      {
+        "id": "c6",
+        "name": "Hot strong coffee",
+        "amount": 0.75,
+        "unit": "cup",
+        "grams": 180
+      },
+      {
+        "id": "c7",
+        "name": "Neutral oil",
+        "amount": 0.25,
+        "unit": "cup",
+        "grams": 55
+      },
+      {
+        "id": "c8",
+        "name": "Vanilla extract",
+        "amount": 1,
+        "unit": "tsp",
+        "grams": 4
+      },
+      {
+        "id": "c9",
+        "name": "Flax egg (2 tbsp ground flax + 6 tbsp water)",
+        "amount": 1,
+        "unit": null,
+        "grams": null,
+        "technique": "flaxseed-egg"
+      }
+    ],
+    "steps": [
+      {
+        "title": "Bloom the cocoa",
+        "text": "Pour hot coffee over cocoa powder and whisk until smooth. Let cool to room temperature.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Make flax egg",
+        "text": "Whisk ground flaxseed with water and refrigerate 10 minutes until gel-like.",
+        "technique": "flaxseed-egg",
+        "tip": "See the flaxseed egg technique page for full instructions."
+      },
+      {
+        "title": "Preheat & Line",
+        "text": "Preheat oven to 350°F. Line a 12-cup muffin tin with cupcake liners. Place rice under each liner for best results.",
+        "technique": null,
+        "tip": "Rice under the liner keeps bottoms flat — see Tips & Tricks!"
+      },
+      {
+        "title": "Mix dry ingredients",
+        "text": "In a large bowl, whisk flour, sugar, baking soda, and salt together.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Combine everything",
+        "text": "Add the cooled cocoa mixture, oil, vanilla, and flax egg to the dry ingredients. Stir until smooth.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Bake",
+        "text": "Fill liners ⅔ full. Bake 20–22 minutes until a toothpick comes out with just a few moist crumbs.",
+        "technique": null,
+        "tip": null
+      }
+    ],
+    "createdAt": "2026-04-26T00:13:33.199Z",
+    "updatedAt": "2026-04-26T00:13:33.199Z"
+  },
+  {
+    "id": "snickerdoodles",
+    "name": "Soft Snickerdoodle Cookies",
+    "category": "cookies",
+    "emoji": "🍪",
+    "prep": "15 min",
+    "bake": "12 min",
+    "servings": 24,
+    "tags": [
+      "eggless",
+      "cinnamon",
+      "soft"
+    ],
+    "description": "Pillowy, cinnamon-sugar cookies with that signature snickerdoodle tang. Egg-free and endlessly snackable.",
+    "sourceUrl": null,
+    "hasVinegar": false,
+    "photo": null,
+    "ingredients": [
+      {
+        "id": "s1",
+        "name": "All-purpose flour",
+        "amount": 2.75,
+        "unit": "cup",
+        "grams": 330
+      },
+      {
+        "id": "s2",
+        "name": "Vegan butter (softened)",
+        "amount": 1,
+        "unit": "cup",
+        "grams": 227
+      },
+      {
+        "id": "s3",
+        "name": "Granulated sugar",
+        "amount": 1.5,
+        "unit": "cup",
+        "grams": 300
+      },
+      {
+        "id": "s4",
+        "name": "Almond milk",
+        "amount": 3,
+        "unit": "tbsp",
+        "grams": 45
+      },
+      {
+        "id": "s5",
+        "name": "Vanilla extract",
+        "amount": 2,
+        "unit": "tsp",
+        "grams": 8
+      },
+      {
+        "id": "s6",
+        "name": "Cream of tartar",
+        "amount": 2,
+        "unit": "tsp",
+        "grams": 6
+      },
+      {
+        "id": "s7",
+        "name": "Baking soda",
+        "amount": 1,
+        "unit": "tsp",
+        "grams": 5
+      },
+      {
+        "id": "s8",
+        "name": "Salt",
+        "amount": 0.5,
+        "unit": "tsp",
+        "grams": 3
+      },
+      {
+        "id": "s9",
+        "name": "Cinnamon (for rolling)",
+        "amount": 2,
+        "unit": "tsp",
+        "grams": 4
+      },
+      {
+        "id": "s10",
+        "name": "Sugar (for rolling)",
+        "amount": 3,
+        "unit": "tbsp",
+        "grams": 36
+      }
+    ],
+    "steps": [
+      {
+        "title": "Cream butter & sugar",
+        "text": "Beat vegan butter and sugar together until light and fluffy, about 3 minutes. Add almond milk and vanilla, mix to combine.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Add dry ingredients",
+        "text": "Stir in flour, cream of tartar, baking soda, and salt until a soft dough forms. Chill 30 minutes.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Preheat",
+        "text": "Preheat oven to 375°F. Line baking sheets with parchment.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Roll & coat",
+        "text": "Mix cinnamon and sugar in a small bowl. Roll dough into 1-inch balls, then roll each in cinnamon sugar.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Bake",
+        "text": "Place 2 inches apart on prepared baking sheets. Bake 10–12 minutes — they should look slightly underdone. They firm up as they cool!",
+        "technique": null,
+        "tip": null
+      }
+    ],
+    "createdAt": "2026-04-26T00:13:33.199Z",
+    "updatedAt": "2026-04-26T00:13:33.199Z"
+  },
+  {
+    "id": "vegan-buttercream",
+    "name": "Fluffy Vegan Buttercream",
+    "category": "frosting",
+    "emoji": "🧈",
+    "prep": "10 min",
+    "bake": "0 min",
+    "servings": 12,
+    "tags": [
+      "vegan",
+      "frosting",
+      "piping"
+    ],
+    "description": "A stable, fluffy buttercream that pipes beautifully and holds its shape. Perfect for cakes, cupcakes, and decorating.",
+    "sourceUrl": null,
+    "hasVinegar": false,
+    "photo": null,
+    "ingredients": [
+      {
+        "id": "b1",
+        "name": "Vegan butter (cold)",
+        "amount": 1,
+        "unit": "cup",
+        "grams": 227
+      },
+      {
+        "id": "b2",
+        "name": "Powdered sugar (sifted)",
+        "amount": 4,
+        "unit": "cup",
+        "grams": 480
+      },
+      {
+        "id": "b3",
+        "name": "Oat milk or coconut cream",
+        "amount": 3,
+        "unit": "tbsp",
+        "grams": 45
+      },
+      {
+        "id": "b4",
+        "name": "Vanilla extract",
+        "amount": 1.5,
+        "unit": "tsp",
+        "grams": 6
+      },
+      {
+        "id": "b5",
+        "name": "Salt",
+        "amount": 0.25,
+        "unit": "tsp",
+        "grams": 1.5
+      }
+    ],
+    "steps": [
+      {
+        "title": "Beat the butter",
+        "text": "Beat cold vegan butter alone for 3–4 minutes until white and creamy. This step is crucial for light, fluffy results.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Add sugar gradually",
+        "text": "Add sifted powdered sugar 1 cup at a time, beating on low to start, then increasing to high speed.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Add liquid & flavor",
+        "text": "Add oat milk, vanilla, and salt. Beat on high 3–4 minutes until very fluffy and smooth.",
+        "technique": null,
+        "tip": null
+      },
+      {
+        "title": "Adjust consistency",
+        "text": "For stiffer piping: add more powdered sugar. For spreading: add 1 more tbsp oat milk.",
+        "technique": "piping-bag",
+        "tip": "See the piping bag technique for decoration tips."
+      }
+    ],
+    "createdAt": "2026-04-26T00:13:33.199Z",
+    "updatedAt": "2026-04-26T00:13:33.199Z"
+  },
+  {
+    "id": "3c6a5516-6e38-4f4d-b59d-6396fb450a54",
+    "name": "Eggless Chocolate Chip Banana Bread",
+    "category": "other",
+    "emoji": "🍫",
+    "prep": "20 min",
+    "bake": "30 min",
+    "servings": 1,
+    "tags": [
+      "dessert",
+      "eggless"
+    ],
+    "description": "Quick and Easy Eggless Chocolate Chip Banana Bread is a super simple one bowl recipe; add all the ingredients - one by one, bake and eat this with a hot cup of coffee or tea. Perfect for chilly winter",
+    "sourceUrl": "https://delightedbaking.com/eggless-chocolate-chips-banana-bread/",
+    "hasVinegar": false,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "All Purpose Flour / Maida",
+        "amount": 0.75,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i2",
+        "name": "Sugar",
+        "amount": 0.5,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i3",
+        "name": "Butter / Oil",
+        "amount": 0.25,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i4",
+        "name": "Vanilla Essence",
+        "amount": 1,
+        "unit": "tsp",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i5",
+        "name": "Baking Soda",
+        "amount": 0.5,
+        "unit": "tsp",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i6",
+        "name": "Baking Powder",
+        "amount": 0.5,
+        "unit": "tsp",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i7",
+        "name": "Banana mashed",
+        "amount": 1,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i8",
+        "name": "Chocolate Chips",
+        "amount": 2,
+        "unit": "tbsp",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      }
+    ],
+    "steps": [
+      {
+        "title": "Preheat the oven to 180 degree centigrade",
+        "text": "Preheat the oven to 180 degree centigrade. Grease a loaf pan.",
+        "tip": null,
+        "technique": "how-to-line-pan"
+      },
+      {
+        "title": "Firstly mash the bananas",
+        "text": "Firstly mash the bananas. The mashed bananas should measure up to one cup.",
+        "tip": null,
+        "technique": null
+      },
+      {
+        "title": "Put the mashed bananas in a bowl",
+        "text": "Put the mashed bananas in a bowl. Add butter/oil and sugar.",
+        "tip": "- It would be better if you powder the sugar before using. The sugar will mix with the oil + mashed banana mixture easily.&nbsp;",
+        "technique": null
+      },
+      {
+        "title": "Mix them together till the sugar melts",
+        "text": "Mix them together till the sugar melts. Now add vanilla essence.&nbsp;",
+        "tip": null,
+        "technique": null
+      },
+      {
+        "title": "In a separate bowl, sieve together flour, baking powder and",
+        "text": "In a separate bowl, sieve together flour, baking powder and baking soda. Add chocolate chips and mix so that the chocolate chips get coated with the flour. (This step is important as it prevents the chocolate chips from sinking to the bottom of the cake)",
+        "tip": null,
+        "technique": null
+      },
+      {
+        "title": "Now add the dry ingredients into the wet ingredients",
+        "text": "Now add the dry ingredients into the wet ingredients. Mix nicely with the help of a spatula.&nbsp;",
+        "tip": null,
+        "technique": null
+      },
+      {
+        "title": "Pour this batter into the loaf pan",
+        "text": "Pour this batter into the loaf pan. Add some chocolate chips on the top.",
+        "tip": null,
+        "technique": null
+      },
+      {
+        "title": "Bake it for 30-35 minutes at 180 degree centigrade or till a",
+        "text": "Bake it for 30-35 minutes at 180 degree centigrade or till a toothpick inserted into the center of the cake comes out clean.",
+        "tip": null,
+        "technique": null
+      }
+    ],
+    "photo": null,
+    "createdAt": "2026-04-26T00:20:52.588Z",
+    "updatedAt": "2026-04-26T00:20:52.588Z"
+  }
+]

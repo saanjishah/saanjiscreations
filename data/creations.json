@@ -1,0 +1,58 @@
+[
+  {
+    "id": "cr1",
+    "name": "Ombre Rose Birthday Cake",
+    "emoji": "🌹",
+    "event": "birthday",
+    "date": "2024-03-15",
+    "base": "Vanilla Sponge",
+    "filling": "Strawberry Jam + Vanilla Buttercream",
+    "decorations": "Pink ombre Swiss meringue buttercream, sugar roses",
+    "favorite": true,
+    "photo": null,
+    "createdAt": "2026-04-26T00:13:33.199Z",
+    "updatedAt": "2026-04-26T00:13:33.199Z"
+  },
+  {
+    "id": "cr2",
+    "name": "Chocolate Drip Graduation Cake",
+    "emoji": "🎓",
+    "event": "graduation",
+    "date": "2024-05-20",
+    "base": "Fudgy Chocolate Cake",
+    "filling": "Chocolate Ganache",
+    "decorations": "Vegan chocolate drip, gold leaf, congratulations topper",
+    "favorite": false,
+    "photo": null,
+    "createdAt": "2026-04-26T00:13:33.199Z",
+    "updatedAt": "2026-04-26T00:13:33.199Z"
+  },
+  {
+    "id": "cr3",
+    "name": "Floral Wedding Cupcakes",
+    "emoji": "💐",
+    "event": "wedding",
+    "date": "2024-06-08",
+    "base": "Vanilla Cupcakes",
+    "filling": "Lemon Curd",
+    "decorations": "White buttercream, piped roses, dried flowers",
+    "favorite": true,
+    "photo": null,
+    "createdAt": "2026-04-26T00:13:33.199Z",
+    "updatedAt": "2026-04-26T00:13:33.199Z"
+  },
+  {
+    "id": "cr4",
+    "name": "Holiday Wreath Cookies",
+    "emoji": "🎄",
+    "event": "holiday",
+    "date": "2024-12-20",
+    "base": "Sugar Cookies",
+    "filling": "N/A",
+    "decorations": "Royal icing, sprinkles, edible gold dust",
+    "favorite": false,
+    "photo": null,
+    "createdAt": "2026-04-26T00:13:33.199Z",
+    "updatedAt": "2026-04-26T00:13:33.199Z"
+  }
+]
