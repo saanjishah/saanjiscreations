@@ -285,11 +285,9 @@ function shareRecipe(type) {
   const dd = document.getElementById('share-dropdown');
   if (dd) dd.style.display = 'none';
   if (type === 'link' && currentRecipe) {
-    // Use the current page URL (minus any existing ?query) so it works on both
-    // local dev (http://localhost:3000) and GitHub Pages subdirectory
-    // (https://user.github.io/repo-name/)
-    const base = location.href.split('?')[0].replace(/#.*$/, '');
-    const url = `${base}?recipe=${currentRecipe.id}`;
+    // Use the hardcoded SITE_URL baked in at export time — always correct
+    const base = (window._SITE_URL || location.origin).replace(/\/$/, '');
+    const url = base + '/?recipe=' + currentRecipe.id;
     navigator.clipboard?.writeText(url).catch(() => {});
     showToast('🔗 Link copied to clipboard!');
     return;

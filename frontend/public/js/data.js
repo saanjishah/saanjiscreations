@@ -106,10 +106,3 @@ const PRODUCTS = {
     { name: 'Baking Box', icon: '📦', desc: 'A curated box of assorted baked goods — perfect as a gift.', pricing: [{ size: 'Small', serves: '2–4', price: '$45' }, { size: 'Large', serves: '6–10', price: '$85' }] },
   ]
 };
-
-if (window._STATIC_TECHNIQUES_READY && window._STATIC_TECHNIQUES_READY.length) {
-  TECHNIQUES.length = 0; window._STATIC_TECHNIQUES_READY.forEach(t => TECHNIQUES.push(t));
-}
-if (window._STATIC_TIPS_READY && window._STATIC_TIPS_READY.length) {
-  TIPS.length = 0; window._STATIC_TIPS_READY.forEach(t => TIPS.push(t));
-}
