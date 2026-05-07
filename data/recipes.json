@@ -597,5 +597,159 @@
     "photo": null,
     "createdAt": "2026-04-26T00:20:52.588Z",
     "updatedAt": "2026-04-26T00:20:52.588Z"
+  },
+  {
+    "id": "041fc134-51a0-4347-a7bf-b363b578d75b",
+    "name": "Eggless Chocolate Chip Cookies",
+    "category": "cookies",
+    "emoji": "",
+    "prep": "10 min",
+    "bake": "0 min",
+    "servings": 12,
+    "tags": [
+      "eggless chocolate chip cookies",
+      "cookies without eggs",
+      "soft and chewy dark chocolate chip cookies",
+      "vegan cookies",
+      "dessert",
+      "american",
+      "eggless"
+    ],
+    "description": "These eggless chocolate chip cookies are life changing! With soft, chewy centers and lightly golden, crispy edges, you'll never need another cookie recipe. The secret to these perfect dark chocolate c.",
+    "sourceUrl": null,
+    "hasVinegar": false,
+    "ingredients": [
+      {
+        "id": "i1",
+        "name": "Salted butter, softened",
+        "amount": 0.5,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i2",
+        "name": "White sugar",
+        "amount": 0.25,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i3",
+        "name": "Light light brown sugar, lightly packed",
+        "amount": 0.75,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i4",
+        "name": "Water, room temperature",
+        "amount": 0.25,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i5",
+        "name": "Vanilla extract",
+        "amount": 2,
+        "unit": "tsp",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i6",
+        "name": "All-purpose flour, spooned and leveled",
+        "amount": 1.75,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i7",
+        "name": "Baking soda",
+        "amount": 0.75,
+        "unit": "tsp",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i8",
+        "name": "Baking powder",
+        "amount": 0.25,
+        "unit": "tsp",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i9",
+        "name": "Salt",
+        "amount": 0.5,
+        "unit": "tsp",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      },
+      {
+        "id": "i10",
+        "name": "Chocolate chips (I use 1/2 cup dark and 1/2 cup semi-sweet)",
+        "amount": 1,
+        "unit": "cup",
+        "grams": null,
+        "isSubstituted": false,
+        "originalName": null
+      }
+    ],
+    "steps": [
+      {
+        "title": "Cream Butter & Sugar",
+        "text": "Cream together softened butter and sugars for several minutes until light and fluffy, scraping down the sides.",
+        "tip": null,
+        "technique": null
+      },
+      {
+        "title": "Gradually add in water",
+        "text": "Gradually add in water and vanilla extract and beat to combine. (The water will cause the mixture to appear curdled. Turn your mixer on medium-high and beat for a few more minutes to bring the ingredients back together.).",
+        "tip": null,
+        "technique": null
+      },
+      {
+        "title": "To a mixing bowl",
+        "text": "To a mixing bowl, add dry ingredients including flour, baking soda, baking powder and salt.",
+        "tip": null,
+        "technique": null
+      },
+      {
+        "title": "Mix Ingredients",
+        "text": "Stir in the chocolate chips and chill the cookie dough in the fridge for 30 minutes or more.",
+        "tip": null,
+        "technique": null
+      },
+      {
+        "title": "Use a cookie scoop",
+        "text": "Use a cookie scoop or spoon to portion out the dough to 2\" balls. Place on a parchment lined baking sheet and bake on the center rack at 350F until the edges are golden brown, for about 12 minutes. The cookie centers will look puffy and under-baked, but trust the process!",
+        "tip": null,
+        "technique": "how-to-line-pan"
+      },
+      {
+        "title": "Cool",
+        "text": "Let the cookies cool to set. They will flatten out and continue cooking after they're removed from the oven. Wait until the cookies are set, 5 minutes or so, before transferring so they don't fall apart.",
+        "tip": null,
+        "technique": null
+      }
+    ],
+    "photo": null,
+    "createdAt": "2026-05-07T03:34:56.845Z",
+    "updatedAt": "2026-05-07T03:34:56.845Z"
   }
 ]

@@ -7,43 +7,60 @@
 <title>Saanji's Creations</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a class="nav-logo" href="#" onclick="navigate('home')">Saanji's Creations</a>
+  <a class="logo-mark" onclick="navigate('home')">
+    <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Layered cake mark -->
+      <rect x="6" y="26" width="28" height="8" rx="3" fill="#A05A45"/>
+      <rect x="9" y="18" width="22" height="8" rx="3" fill="#C97B63"/>
+      <rect x="13" y="11" width="14" height="8" rx="3" fill="#E8C4B4"/>
+      <!-- Candle -->
+      <rect x="19" y="5" width="2" height="7" rx="1" fill="#B8963C"/>
+      <ellipse cx="20" cy="4.5" rx="1.5" ry="2" fill="#F5D87A" opacity="0.9"/>
+    </svg>
+    <span class="logo-text">Saanji's Creations</span>
+  </a>
+
   <ul class="nav-links">
-    <li><a href="#" onclick="navigate('recipes')" data-page="recipes">Recipes</a></li>
-    <li><a href="#" onclick="navigate('creations')" data-page="creations">Creations</a></li>
-    <li><a href="#" onclick="navigate('products')" data-page="products">Order</a></li>
-    <li><a href="#" onclick="navigate('techniques')" data-page="techniques">Techniques</a></li>
-    <li><a href="#" onclick="navigate('tips')" data-page="tips">Tips & Tricks</a></li>
+    <li><a onclick="navigate('recipes')" data-page="recipes">Recipes</a></li>
+    <li><a onclick="navigate('creations')" data-page="creations">Creations</a></li>
+    <li><a onclick="navigate('products')" data-page="products">Order</a></li>
+    <li><a onclick="navigate('techniques')" data-page="techniques">Techniques</a></li>
+    <li><a onclick="navigate('tips')" data-page="tips">Tips &amp; Tricks</a></li>
   </ul>
+
   <div class="nav-right">
     <div class="search-box">
-      <span class="search-icon">⌕</span>
+      <span class="search-icon">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="5.5" cy="5.5" r="4" stroke="currentColor" stroke-width="1.4"/><line x1="8.8" y1="8.8" x2="12" y2="12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </span>
       <input type="text" placeholder="Search recipes, techniques…" id="global-search" oninput="handleSearch(this.value)">
     </div>
-    <span id="admin-badge-nav" style="display:none" class="admin-badge">✦ Admin</span>
+    <span id="admin-badge-nav" style="display:none" class="admin-badge">Admin</span>
     <span style="font-size:0.7rem;color:var(--text-light);letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 0.5rem">View only</span>
     <button id="admin-logout-btn" style="display:none" class="btn-outline" onclick="logoutAdmin()">Log out</button>
   </div>
+
   <button class="hamburger" id="ham-btn" onclick="toggleMobileMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#" onclick="navigate('recipes');closeMobileMenu()">Recipes</a>
-  <a href="#" onclick="navigate('creations');closeMobileMenu()">Creations</a>
-  <a href="#" onclick="navigate('products');closeMobileMenu()">Order</a>
-  <a href="#" onclick="navigate('techniques');closeMobileMenu()">Techniques</a>
-  <a href="#" onclick="navigate('tips');closeMobileMenu()">Tips & Tricks</a>
+  <a onclick="navigate('recipes');closeMobileMenu()">Recipes</a>
+  <a onclick="navigate('creations');closeMobileMenu()">Creations</a>
+  <a onclick="navigate('products');closeMobileMenu()">Order</a>
+  <a onclick="navigate('techniques');closeMobileMenu()">Techniques</a>
+  <a onclick="navigate('tips');closeMobileMenu()">Tips &amp; Tricks</a>
   <hr style="border:none;border-top:1px solid var(--border);margin:0.5rem 0">
-  <a href="#" onclick="showAdminLogin();closeMobileMenu()" id="mobile-admin-link">Admin Login</a>
+  <a onclick="showAdminLogin();closeMobileMenu()" id="mobile-admin-link">Admin Login</a>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -53,7 +70,7 @@
   <div class="hero">
     <div class="hero-eyebrow">Handcrafted with Love &amp; Plants</div>
     <h1>Baking is an<br><em>act of joy</em></h1>
-    <p class="hero-sub">Vegan &amp; eggless recipes, creations, and techniques—all from Saanji's kitchen.</p>
+    <p class="hero-sub">Vegan &amp; eggless recipes, creations, and techniques — all from Saanji's kitchen.</p>
     <div class="hero-ctas">
       <button class="btn-primary" onclick="navigate('recipes')">Browse Recipes</button>
       <button class="btn-secondary" onclick="navigate('creations')">See Creations</button>
@@ -66,8 +83,8 @@
       <h2 class="section-title">Recent <em>Favorites</em></h2>
       <div class="section-divider"></div>
     </div>
-    <div class="recipe-grid" id="featured-recipes"><div class="skeleton-grid"></div></div>
-    <div style="text-align:center;margin-top:2.5rem">
+    <div class="recipe-grid" id="featured-recipes"></div>
+    <div style="text-align:center;margin-top:2.4rem">
       <button class="btn-secondary" onclick="navigate('recipes')">View All Recipes →</button>
     </div>
   </div>
@@ -87,7 +104,7 @@
       <button class="filter-btn" onclick="filterRecipes('cupcakes',this)">Cupcakes</button>
       <button class="filter-btn" onclick="filterRecipes('cookies',this)">Cookies</button>
       <button class="filter-btn" onclick="filterRecipes('frosting',this)">Frostings</button>
-      <button class="filter-btn" onclick="filterRecipes('favorites',this)">★ Favorites</button>
+      <button class="filter-btn" onclick="filterRecipes('favorites',this)">Favorites</button>
     </div>
     <div class="recipe-grid" id="all-recipes"></div>
     <div id="admin-add-recipe" style="display:none;margin-top:3rem">
@@ -112,11 +129,11 @@
     </div>
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterCreations('all',this)">All</button>
-      <button class="filter-btn" onclick="filterCreations('birthday',this)">🎂 Birthday</button>
-      <button class="filter-btn" onclick="filterCreations('wedding',this)">💍 Wedding</button>
-      <button class="filter-btn" onclick="filterCreations('graduation',this)">🎓 Graduation</button>
-      <button class="filter-btn" onclick="filterCreations('holiday',this)">🎄 Holiday</button>
-      <button class="filter-btn" onclick="filterCreations('favorites',this)">★ Favorites</button>
+      <button class="filter-btn" onclick="filterCreations('birthday',this)">Birthday</button>
+      <button class="filter-btn" onclick="filterCreations('wedding',this)">Wedding</button>
+      <button class="filter-btn" onclick="filterCreations('graduation',this)">Graduation</button>
+      <button class="filter-btn" onclick="filterCreations('holiday',this)">Holiday</button>
+      <button class="filter-btn" onclick="filterCreations('favorites',this)">Favorites</button>
     </div>
     <div class="gallery-grid" id="creations-gallery"></div>
     <div id="admin-add-creation" style="display:none;margin-top:3rem">
@@ -134,8 +151,8 @@
       <h2 class="section-title">Custom <em>Creations</em></h2>
       <div class="section-divider"></div>
     </div>
-    <div style="text-align:center;max-width:540px;margin:0 auto 3rem;color:var(--text-muted);font-size:0.88rem;line-height:1.7">
-      All items are 100% vegan and made with love. Prices vary by size and servings. Custom orders welcome.
+    <div style="text-align:center;max-width:520px;margin:0 auto 3rem;color:var(--text-secondary);font-size:0.86rem;line-height:1.72">
+      All items are 100% vegan and made with love. Prices vary by size and number of servings. Custom orders are welcome — reach out for special requests.
     </div>
     <div class="products-tabs">
       <button class="product-tab active" onclick="switchProductTab('cakes',this)">Cakes</button>
@@ -193,7 +210,7 @@
   <div class="modal" style="position:relative">
     <button class="modal-close" onclick="closeModal('admin-modal')">✕</button>
     <div class="modal-title">Admin Access</div>
-    <div class="modal-subtitle">Enter your admin password to unlock editing features.</div>
+    <div class="modal-subtitle">Enter your password to unlock editing features.</div>
     <div class="form-group">
       <label class="form-label">Password</label>
       <input class="form-input" type="password" id="admin-password" placeholder="Enter password" onkeydown="if(event.key==='Enter')tryAdminLogin()">
@@ -202,18 +219,18 @@
       <button class="btn-primary" onclick="tryAdminLogin()" style="flex:1">Sign In</button>
       <button class="btn-outline" onclick="closeModal('admin-modal')">Cancel</button>
     </div>
-    <p style="font-size:0.75rem;color:var(--text-light);margin-top:1rem;text-align:center">Password set in your <code style="color:var(--terracotta)">.env</code> file</p>
+    <p style="font-size:0.72rem;color:var(--text-light);margin-top:1rem;text-align:center">Password set in your <code style="color:var(--rose-dark)">.env</code> file</p>
   </div>
 </div>
 
 <!-- ══ CONFIRM DELETE MODAL ══ -->
 <div class="modal-overlay" id="confirm-modal" style="display:none" onclick="closeModalOutside(event,'confirm-modal')">
-  <div class="modal" style="position:relative;max-width:420px">
+  <div class="modal" style="position:relative;max-width:400px">
     <button class="modal-close" onclick="closeModal('confirm-modal')">✕</button>
-    <div class="modal-title" style="font-size:1.4rem">Delete this?</div>
-    <p id="confirm-message" style="font-size:0.88rem;color:var(--text-muted);margin:0.5rem 0 1.5rem;line-height:1.6"></p>
+    <div class="modal-title" style="font-size:1.35rem">Confirm Delete</div>
+    <p id="confirm-message" style="font-size:0.86rem;color:var(--text-muted);margin:0.5rem 0 1.5rem;line-height:1.6"></p>
     <div style="display:flex;gap:0.75rem">
-      <button class="btn-primary" id="confirm-yes" style="background:var(--terracotta);flex:1">Yes, delete</button>
+      <button class="btn-primary" id="confirm-yes" style="flex:1">Delete</button>
       <button class="btn-outline" onclick="closeModal('confirm-modal')" style="flex:1">Cancel</button>
     </div>
   </div>
@@ -221,19 +238,20 @@
 
 <!-- ══ SHARE MODAL ══ -->
 <div class="modal-overlay" id="share-modal" style="display:none" onclick="closeModalOutside(event,'share-modal')">
-  <div class="modal" style="position:relative;max-width:440px">
+  <div class="modal" style="position:relative;max-width:420px">
     <button class="modal-close" onclick="closeModal('share-modal')">✕</button>
     <div class="modal-title">Share Recipe</div>
     <div class="modal-subtitle">Choose what to include in the shared version.</div>
-    <div style="display:flex;flex-direction:column;gap:0.5rem">
-      <button class="share-option" onclick="shareRecipe('recipe-only')">📋 Recipe only (ingredients + steps)</button>
-      <button class="share-option" onclick="shareRecipe('result-only')">🖼 Result photo + recipe</button>
-      <button class="share-option" onclick="shareRecipe('pdf')">⬇ Download as PDF</button>
-      <button class="share-option" onclick="shareRecipe('link')">🔗 Copy shareable link</button>
+    <div style="display:flex;flex-direction:column;gap:0.4rem">
+      <button class="share-option" onclick="shareRecipe('recipe-only')">Recipe only (ingredients + steps)</button>
+      <button class="share-option" onclick="shareRecipe('result-only')">Result photo + recipe</button>
+      <button class="share-option" onclick="shareRecipe('pdf')">Download as PDF</button>
+      <button class="share-option" onclick="shareRecipe('link')">Copy shareable link</button>
     </div>
   </div>
 </div>
 
+<script src="js/normalizer.js"></script>
 <script src="js/data.js"></script>
 <script src="js/api.js"></script>
 <script src="js/app.js"></script>

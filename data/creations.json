@@ -54,5 +54,47 @@
     "photo": null,
     "createdAt": "2026-04-26T00:13:33.199Z",
     "updatedAt": "2026-04-26T00:13:33.199Z"
+  },
+  {
+    "id": "2016a6fb-28aa-47dc-b7fc-a62c0c392ebe",
+    "name": "Cake",
+    "event": "birthday",
+    "date": "2026-04-27",
+    "base": "",
+    "filling": "",
+    "decorations": "",
+    "emoji": "🎂",
+    "favorite": false,
+    "photo": "/uploads/creations/1777315935739-mosalu.png",
+    "createdAt": "2026-04-27T18:52:15.758Z",
+    "updatedAt": "2026-04-27T18:52:15.758Z"
+  },
+  {
+    "id": "2ded4afe-ae6e-4f93-b175-87729a71a6e5",
+    "name": "Cake",
+    "event": "birthday",
+    "date": "2026-04-27",
+    "base": "",
+    "filling": "",
+    "decorations": "",
+    "emoji": "🎂",
+    "favorite": false,
+    "photo": null,
+    "createdAt": "2026-04-27T18:52:53.491Z",
+    "updatedAt": "2026-04-27T18:52:53.491Z"
+  },
+  {
+    "id": "e6056954-9c82-4866-ae0a-2846a7e3c6c6",
+    "name": "Cake",
+    "event": "birthday",
+    "date": "2026-05-07",
+    "base": "",
+    "filling": "",
+    "decorations": "",
+    "emoji": "",
+    "favorite": false,
+    "photo": "/uploads/creations/1778125020795-img-5040.jpeg",
+    "createdAt": "2026-05-07T03:37:00.908Z",
+    "updatedAt": "2026-05-07T03:37:00.908Z"
   }
 ]

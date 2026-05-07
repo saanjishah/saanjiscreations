@@ -18,19 +18,21 @@ app.use(express.static(path.join(__dirname, '../frontend/public')));
 app.use('/uploads', express.static(path.join(__dirname, '../frontend/public/uploads')));
 
 // ── Routes ──────────────────────────────────────────
-const recipesRouter = require('./routes/recipes');
-const creationsRouter = require('./routes/creations');
-const autofillRouter = require('./routes/autofill');
-const authRouter = require('./routes/auth');
+const recipesRouter    = require('./routes/recipes');
+const creationsRouter  = require('./routes/creations');
+const autofillRouter   = require('./routes/autofill');
+const authRouter       = require('./routes/auth');
 const techniquesRouter = require('./routes/techniques');
-const tipsRouter = require('./routes/tips');
+const tipsRouter       = require('./routes/tips');
+const contactRouter    = require('./routes/contact');
 
-app.use('/api/recipes', recipesRouter);
-app.use('/api/creations', creationsRouter);
-app.use('/api/autofill', autofillRouter);
-app.use('/api/auth', authRouter);
+app.use('/api/recipes',    recipesRouter);
+app.use('/api/creations',  creationsRouter);
+app.use('/api/autofill',   autofillRouter);
+app.use('/api/auth',       authRouter);
 app.use('/api/techniques', techniquesRouter);
-app.use('/api/tips', tipsRouter);
+app.use('/api/tips',       tipsRouter);
+app.use('/api/contact',    contactRouter);
 
 // ── Catch-all: serve frontend ───────────────────────
 app.get('*', (req, res) => {

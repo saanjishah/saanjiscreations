@@ -209,3 +209,76 @@ A helper script for this export is planned for a future version.
 | AI autofill | Anthropic API (claude-sonnet-4) |
 | Frontend | Vanilla JS + HTML + CSS |
 | Fonts | Cormorant Garamond + Jost (Google Fonts) |
+
+---
+
+## Contact Form → Google Sheets Setup
+
+### 1. Create the Google Sheet
+
+Go to [sheets.google.com](https://sheets.google.com) and create a new sheet. Add these headers in row 1:
+
+```
+Timestamp | Name | Email | Subject | Message | Page
+```
+
+### 2. Add the Apps Script
+
+In your sheet: **Extensions → Apps Script**. Delete any existing code and paste this:
+
+```javascript
+function doPost(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    const data  = JSON.parse(e.postData.contents);
+    sheet.appendRow([
+      data.timestamp || new Date().toISOString(),
+      data.name    || '',
+      data.email   || '',
+      data.subject || '',
+      data.message || '',
+      data.page    || '',
+    ]);
+    return ContentService
+      .createTextOutput(JSON.stringify({ ok: true }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ error: err.message }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+```
+
+### 3. Deploy as Web App
+
+1. Click **Deploy → New deployment**
+2. Type: **Web app**
+3. Execute as: **Me**
+4. Who has access: **Anyone**
+5. Click **Deploy** and copy the Web App URL
+
+### 4. Add to .env
+
+```
+GOOGLE_SHEETS_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
+```
+
+Restart the server (`npm run dev`). Contact form submissions will now appear in your Google Sheet automatically.
+
+---
+
+## Uploading from Your Phone
+
+Since the admin panel runs in a browser, you can upload photos and add recipes directly from your iPhone or Android:
+
+1. Make sure your computer (running `npm run dev`) and phone are on the **same Wi-Fi network**
+2. Find your computer's local IP address:
+   - **Mac:** System Settings → Wi-Fi → Details → IP Address (e.g. `192.168.1.42`)
+   - **Windows:** Run `ipconfig` in Terminal → IPv4 Address
+3. On your phone, open Safari/Chrome and go to: `http://192.168.1.42:3000`
+4. Log in as Admin — the full admin panel works on mobile
+5. When uploading photos, tap the upload zone and your phone's camera roll appears
+6. **HEIC photos** (iPhone default format) are automatically converted to JPEG — no action needed
+
+To make this easier long-term, consider deploying to Railway or Render (free tier) so you can access the admin panel from anywhere without needing to be on the same Wi-Fi.
